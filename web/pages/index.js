@@ -1,21 +1,71 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Layout from '../components/Layout'
+import React from "react";
+import Link from "next/link";
+import groq from "groq";
+import client from "../client";
+import Layout from "../components/Layout";
 
-class IndexPage extends React.Component {
-  static propTypes = {
-    config: PropTypes.object
-  }
+function Index(props) {
+  const { events = [] } = props;
+  const { posts = [] } = props;
+  // console.log(events);
 
-  render () {
-    const {config} = this.props
-    return (
-      <Layout config={config}>
-        <h1>No route set</h1>
-        <h2>Setup automatic routes in sanity or custom routes in next.config.js</h2>
-      </Layout>
-    )
-  }
+  return (
+    <div>
+      <h1>Sections</h1>
+      <nav>
+        <div>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </div>
+        <div>
+          <Link href="/events">
+            <a>Events</a>
+          </Link>
+        </div>
+        <div>
+          <Link href="/news">
+            <a>News</a>
+          </Link>
+        </div>
+      </nav>
+
+      <hr />
+
+      <h3>All news and events</h3>
+      {events.map(
+        ({ _id, title = "", slug = "", _updatedAt = "" }) =>
+          slug && (
+            <li key={_id}>
+              <Link href="/event/[slug]" as={`/event/${slug.current}`}>
+                <a>{title}</a>
+              </Link>{" "}
+              ({new Date(_updatedAt).toDateString()})
+            </li>
+          )
+      )}
+      {posts.map(
+        ({ _id, title = "", slug = "", _updatedAt = "" }) =>
+          slug && (
+            <li key={_id}>
+              <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                <a>{title}</a>
+              </Link>{" "}
+              ({new Date(_updatedAt).toDateString()})
+            </li>
+          )
+      )}
+    </div>
+  );
 }
 
-export default IndexPage
+Index.getInitialProps = async () => ({
+  events: await client.fetch(groq`
+    *[_type == "event"]
+  `),
+  posts: await client.fetch(groq`
+    *[_type == "post"]|order(publishedAt desc)
+  `),
+});
+
+export default Index;
