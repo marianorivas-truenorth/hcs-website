@@ -1,0 +1,125 @@
+@tailwind base;
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Merriweather', serif;
+}
+
+.font-sans {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Merriweather', serif;
+}
+
+a {
+  @apply text-gray-800;
+}
+
+.button {
+  @apply rounded-full bg-secondary-500 text-white px-6 py-2 inline-block font-bold shadow-lg text-lg;
+}
+
+.button-primary {
+  @apply bg-primary-900;
+}
+
+.button-accent {
+  @apply bg-accent-500;
+}
+
+.button-white {
+  @apply bg-white text-gray-800;
+}
+
+p {
+  @apply mb-6;
+}
+
+/* Main Nav */
+nav a.active {
+  @apply border-accent-500;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+.post {
+  @apply tracking-wider leading-8 text-xl;
+}
+
+.post p {
+  @apply my-5;
+}
+
+.post h1 {
+  @apply text-5xl font-bold mt-12 mb-5 leading-10;
+}
+
+.post h2 {
+  @apply text-4xl font-bold mt-10 mb-5;
+}
+
+.post h3 {
+  @apply text-3xl font-bold mt-10 mb-5;
+}
+
+.post h4 {
+  @apply text-2xl font-bold mt-10 mb-5;
+}
+
+.post h5 {
+  @apply text-xl font-bold mt-10 mb-5;
+}
+
+.post h6 {
+  @apply text-lg font-bold mt-10 mb-5;
+}
+
+.post ul,
+.post ol,
+.post p {
+  @apply overflow-auto;
+}
+
+.post > div > ul,
+.post > div > ol {
+  @apply my-6;
+}
+
+.post ul,
+.post ol {
+  @apply pl-8;
+}
+
+.post ul {
+  @apply list-outside list-disc;
+}
+
+.post ol {
+  @apply list-outside list-decimal;
+}
+
+.post pre[class*='language-'] {
+  @apply my-8;
+}
+
+.post table {
+  @apply my-8 border-collapse block overflow-auto;
+}
+
+.post th,
+.post td {
+  @apply border px-8 py-4;
+}
+
+.post th {
+}
