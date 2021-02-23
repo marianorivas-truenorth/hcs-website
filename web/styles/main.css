@@ -1,5 +1,9 @@
 @tailwind base;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -39,8 +43,27 @@ a {
   @apply bg-white text-gray-800;
 }
 
+.button-transparent {
+  @apply bg-transparent;
+}
+
+.stickynav .button {
+  @apply bg-transparent;
+}
+
+.stickynav .button.active {
+  @apply bg-primary-900;
+}
+
 p {
   @apply mb-6;
+}
+
+/* Hero */
+.filter {
+  background: #3a4649;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
 }
 
 /* Main Nav */
@@ -53,35 +76,39 @@ nav a.active {
 @tailwind utilities;
 
 .post {
-  @apply tracking-wider leading-8 text-xl;
+  @apply text-xl;
 }
 
 .post p {
   @apply my-5;
 }
 
+.post a {
+  @apply text-secondary-600 underline;
+}
+
 .post h1 {
-  @apply text-5xl font-bold mt-12 mb-5 leading-10;
+  @apply text-4xl mt-12 mb-4;
 }
 
 .post h2 {
-  @apply text-4xl font-bold mt-10 mb-5;
+  @apply text-3xl mt-10 mb-4;
 }
 
 .post h3 {
-  @apply text-3xl font-bold mt-10 mb-5;
+  @apply text-2xl font-bold mt-10 mb-4;
 }
 
 .post h4 {
-  @apply text-2xl font-bold mt-10 mb-5;
+  @apply text-2xl mt-10 mb-4;
 }
 
 .post h5 {
-  @apply text-xl font-bold mt-10 mb-5;
+  @apply text-xl font-bold mt-10 mb-4;
 }
 
 .post h6 {
-  @apply text-lg font-bold mt-10 mb-5;
+  @apply text-lg font-bold mt-10 mb-4;
 }
 
 .post ul,
