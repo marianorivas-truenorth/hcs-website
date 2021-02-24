@@ -1,11 +1,12 @@
 # HCS Website
 
 > _DIVERSITY • INCLUSION • SOCIAL EQUITY_
+
 > Transforming the historic Hockessin school that ended segregation into a Center for Diversity, Inclusion & Social Equity
+
 > https://hockessincoloredschool107.org/
 
 This is a production-ready with SEO-friendly website handcrafted for [Hockessin Colored School #107](https://hockessincoloredschool107.org/). ⚡️ Built with [NextJs](https://www.nextjs.org), [Tailwind CSS](https://tailwindcss.com) and [Sanity CMS](https://www.sanity.io). Global deployment on [Netlify](https://netlify.com).
-Tecnologicamente también creemos que la construcción construcción es un proceso
 
 ## Quick start
 
