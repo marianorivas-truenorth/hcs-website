@@ -1,11 +1,15 @@
-import React from "react";
-import Head from "next/head";
-import Header from "./Header";
-import Footer from "./Footer";
+import React from 'react';
+import Head from 'next/head';
+import Header from './Header';
+import Footer from './Footer';
 
 function Layout(props) {
-  const { children } = props;
+  const { config, children } = props;
 
+  if (!config) {
+    console.error('Missing config');
+    return <div>Missing config</div>;
+  }
   return (
     <>
       <Head>
@@ -19,7 +23,11 @@ function Layout(props) {
       <div className="antialiased w-full text-gray-800 text-xl">
         <Header />
         <main>{children}</main>
-        <Footer />
+        <Footer
+          facebookUrl={config.facebookUrl}
+          linkedinUrl={config.linkedinUrl}
+          twitterUrl={config.twitterUrl}
+        />
       </div>
     </>
   );

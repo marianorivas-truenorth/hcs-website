@@ -1,6 +1,6 @@
 export default {
   name: 'post',
-  title: 'Post',
+  title: 'Media',
   type: 'document',
   fields: [
     {
@@ -17,12 +17,11 @@ export default {
         maxLength: 96
       }
     },
-    // {
-    //   name: 'author',
-    //   title: 'Author',
-    //   type: 'reference',
-    //   to: { type: 'author' }
-    // },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'string'
+    },
     {
       name: 'mainImage',
       title: 'Main image',
@@ -38,6 +37,12 @@ export default {
     //   of: [{ type: 'reference', to: { type: 'category' } }]
     // },
     {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }]
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
@@ -52,14 +57,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage'
-    },
-    prepare(selection) {
-      const { author } = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`
-      })
     }
   }
 }

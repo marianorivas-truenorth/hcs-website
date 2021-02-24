@@ -68,7 +68,7 @@ Then, you can run locally in development mode with live reload:
 npm run dev
 ```
 
-Open http://localhost:8080 with your favorite browser to see your blog.
+Open http://localhost:8080 with your favorite browser to see your website.
 
 ### Project structure
 

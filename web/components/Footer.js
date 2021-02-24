@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import Mailchimp from './Mailchimp';
 
 function Footer(props) {
+  const { twitterUrl, facebookUrl, linkedinUrl } = props;
+
   return (
     <footer className="bg-gray-300 px-8 py-16 text-gray-700 text-base">
       <div className="max-w-screen-xl mx-auto">
@@ -36,43 +39,30 @@ function Footer(props) {
           <aside>
             <h4 className="mb-4 text-2xl">Follow us</h4>
             <nav>
-              <a href="#" className="inline-block mr-4">
-                <img src="/assets/images/icon-facebook.svg" alt="Facebook" />
-              </a>
-              <a href="#" className="inline-block mr-4">
-                <img src="/assets/images/icon-linkedin.svg" alt="LinkedIn" />
-              </a>
-              <a href="#" className="inline-block mr-4">
-                <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
-              </a>
+              {facebookUrl ? (
+                <a href={facebookUrl} rel="noopener nofollow" className="inline-block mr-4">
+                  <img src="/assets/images/icon-facebook.svg" alt="facebook" />
+                </a>
+              ) : null}
+              {linkedinUrl ? (
+                <a href={linkedinUrl} rel="noopener nofollow" className="inline-block mr-4">
+                  <img src="/assets/images/icon-linkedin.svg" alt="linkedin" />
+                </a>
+              ) : null}
+              {twitterUrl ? (
+                <a href={twitterUrl} rel="noopener nofollow" className="inline-block mr-4">
+                  <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
+                </a>
+              ) : null}
             </nav>
           </aside>
 
           <aside>
             <h4 className="mb-4 text-2xl">Sign up for our Newsletter</h4>
-            <form>
-              <div className="mb-4">
-                <label htmlFor="name">Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="email">Email</label>
-                <input
-                  id="email"
-                  type="text"
-                  className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                />
-              </div>
-              <div className="mt-8">
-                <button type="submit" className="button button-accent">
-                  Sign Up
-                </button>
-              </div>
-            </form>
+            <Mailchimp
+              buttonClassName="button button-accent"
+              actionUrl="https://hockessincoloredschool107.us1.list-manage.com/subscribe/post?u=178f276496ca736dd75a3afd5&amp;id=e314cd856b"
+            />
           </aside>
         </div>
 

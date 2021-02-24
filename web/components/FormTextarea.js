@@ -1,11 +1,10 @@
 import React from 'react';
 
-const FormInput = ({ name, label, placeholder, register, errors }) => (
+const FormTextarea = ({ name, label, placeholder, register, errors }) => (
   <>
     <label htmlFor={label}>{label}</label>
     <div className="relative">
-      <input
-        type="text"
+      <textarea
         name={name}
         placeholder={placeholder || label}
         className={`placeholder-gray-400 block w-full rounded-md border bg-white px-2 py-1 text-gray-700 outline-none focus:outline-none ${
@@ -27,4 +26,4 @@ const FormInput = ({ name, label, placeholder, register, errors }) => (
   </>
 );
 
-export default FormInput;
+export default FormTextarea;

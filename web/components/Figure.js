@@ -1,47 +1,39 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import imageUrlBuilder from '@sanity/image-url'
-import styles from './Figure.module.css'
-import client from '../client'
+import React from 'react';
+import PropTypes from 'prop-types';
+import imageUrlBuilder from '@sanity/image-url';
+import client from '../client';
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
-function Figure ({node}) {
-  const {alt, caption, asset} = node
+function Figure({ props }) {
+  const { alt, caption, asset, width = 2000 } = props;
   if (!asset) {
-    return undefined
+    return undefined;
   }
   return (
-    <figure className={styles.content}>
-      <img
-        src={builder
-          .image(asset)
-          .auto('format')
-          .width(2000)
-          .url()}
-        className={styles.image}
-        alt={alt}
-      />
+    <figure className="w-full">
+      <img src={builder.image(asset).auto('format').width(width).url()} className="" alt={alt} />
       {caption && (
         <figcaption>
-          <div className={styles.caption}>
-            <div className={styles.captionBox}>
+          <div className="">
+            <div className="">
               <p>{caption}</p>
             </div>
           </div>
         </figcaption>
       )}
     </figure>
-  )
+  );
 }
 
 Figure.propTypes = {
-  node: PropTypes.shape({
+  props: PropTypes.shape({
     alt: PropTypes.string,
     caption: PropTypes.string,
     asset: PropTypes.shape({
-      _ref: PropTypes.string
-    })
-  })
-}
-export default Figure
+      _ref: PropTypes.string,
+    }),
+  }),
+};
+
+export default Figure;

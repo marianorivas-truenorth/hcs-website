@@ -1,62 +1,82 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import groq from 'groq';
+import client from '../../client';
 import imageUrlBuilder from '@sanity/image-url';
 import BlockContent from '@sanity/block-content-to-react';
-import client from '../../client';
-import Layout from '../../components/Layout';
-import { Banner } from '../../components/sections';
+import Layout from '@/components/Layout';
+import Tag from '@/components/Tag';
+import { Banner } from '@/components/sections';
 
 const Post = (props) => {
   const {
+    config,
     title = 'Missing title',
-    name = 'Missing name',
-    categories,
-    authorImage,
+    date,
+    link,
+    summary,
+    tags,
+    mainImage,
     body = [],
   } = props;
-  // console.log(events);
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>
+          {title} | {config.title}
+        </title>
+      </Head>
       <article>
         <section className="bg-gray-200">
-          <div className="max-w-screen-xl mx-auto py-8">
+          <div className="max-w-screen-lg mx-auto py-8 relative">
             <Link href="/events-and-media">
-              <a className="text-secondary-600 flex items-center">
-                <span className="mr-2">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 0L9.41 1.41L3.83 7H16V9H3.83L9.41 14.59L8 16L0 8L8 0Z"
-                      fill="#D17249"
-                    />
-                  </svg>
-                </span>
-                <span>Events & Media</span>
+              <a className="md:absolute top-0 left-0 md:-ml-16 my-7 text-white bg-primary-900 hover:bg-primary-600 transition-colors ease-in-out duration-200 flex w-10 h-10 rounded-full items-center justify-center shadow-lg">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 2L11.41 3.41L5.83 9H18V11H5.83L11.41 16.59L10 18L2 10L10 2Z"
+                    fill="white"
+                  />
+                </svg>
               </a>
             </Link>
-          </div>
-        </section>
 
-        <section className="bg-gray-200">
-          <div className="max-w-screen-lg mx-auto py-8">
+            <div className="mb-8">
+              {tags?.length > 0 ? (
+                tags.map((tag) => {
+                  if (tag !== '') return <Tag label={tag} key={tag} />;
+                })
+              ) : (
+                <Tag label="Event" />
+              )}
+            </div>
+
             <h1 className="text-4xl mb-8">{title}</h1>
+
             <div className="md:flex items-center">
               <div className="md:w-3/5">
-                <div className="text-2xl font-bold">May 20, 2021, 3:30 pm</div>
+                <div className="text-xl font-bold">{new Date(date).toString()}</div>
                 <div className="mt-2">
                   Online Event:{' '}
-                  <a href="#" className="text-secondary-600 font-bold underline">
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener nofollow"
+                    className="text-secondary-600 font-bold underline"
+                  >
                     Zoom Link
                   </a>
                 </div>
-                <p className="mt-2">Presented by Governor John Carney & Dignitaries</p>
+                {summary ? <p className="mt-2">{summary}</p> : null}
+
+                {/* Social Sharing */}
                 <nav className="my-8">
                   <a href="#" className="inline-block mr-4">
                     <img src="/assets/images/icon-facebook.svg" alt="Facebook" />
@@ -70,46 +90,24 @@ const Post = (props) => {
                 </nav>
               </div>
 
-              {/* {authorImage && ( */}
-              <div className="md:w-2/5">
-                <figure className="w-full mb-4">
-                  <img
-                    src="/assets/images/our-history/HCS-floorplan.jpg"
-                    // src={urlFor(authorImage).width(50).url()}
-                    alt="Floorplan"
-                    className="w-full rounded-lg shadow-lg"
-                  />
-                </figure>
-              </div>
-              {/* )} */}
+              {mainImage && (
+                <div className="md:w-2/5">
+                  <figure className="w-full mb-4">
+                    <img
+                      src="/assets/images/our-history/HCS-floorplan.jpg"
+                      src={urlFor(mainImage).width(620).url()}
+                      alt="Floorplan"
+                      className="w-full rounded-lg shadow-lg"
+                    />
+                  </figure>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
         <section className="bg-white">
           <div className="max-w-screen-lg mx-auto py-16 post">
-            <p>
-              Nam commodo suscipit quam. Nulla porta dolor. Nunc sed turpis. Quisque ut nisi.
-              Suspendisse feugiat.{' '}
-            </p>
-
-            <h1>Title (Heading 1) </h1>
-
-            <p>
-              Vestibulum suscipit nulla quis orci. Etiam ut purus mattis mauris sodales aliquam.
-              Praesent congue erat at massa. Vestibulum eu odio. Donec posuere vulputate arcu. Fusce
-              pharetra convallis urna. Vivamus laoreet. Proin sapien ipsum, porta a, auctor quis,
-              euismod ut, mi. Quisque malesuada placerat nisl. <a href="#">Inline link example </a>
-            </p>
-
-            <h2>Subtitle (Heading 2) </h2>
-            <p>
-              Curabitur blandit mollis lacus. Proin magna. Phasellus dolor. Vestibulum volutpat
-              pretium libero. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Proin magna.
-              Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Donec sodales sagittis
-              magna. Vivamus euismod mauris. Mauris sollicitudin fermentum libero.
-            </p>
-
             <BlockContent
               blocks={body}
               imageOptions={{ w: 320, h: 240, fit: 'max' }}
@@ -135,9 +133,11 @@ function urlFor(source) {
 
 const query = groq`*[_type == "event" && slug.current == $slug][0]{
   title,
-  "name": author->name,
-  "categories": categories[]->title,
-  "authorImage": author->image,
+  date,
+  link,
+  summary,
+  mainImage,
+  tags,
   body
 }`;
 

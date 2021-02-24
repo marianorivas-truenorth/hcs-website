@@ -1,19 +1,25 @@
 import React from 'react';
 import groq from 'groq';
 import Link from 'next/link';
+import Head from 'next/head';
 import Scrollspy from 'react-scrollspy';
 import client from '../client';
-import Layout from '../components/Layout';
-import { Banner, PageHeader } from '../components/sections';
-import Card from '../components/Card';
+import Layout from '@/components/Layout';
+import { Banner, PageHeader } from '@/components/sections';
+import CardPost from '@/components/CardPost';
+import CardEvent from '@/components/CardEvent';
 
 function Index(props) {
-  // console.log(events);
-  const { posts = [], events = [] } = props;
+  const { config, posts = [], events = [] } = props;
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>Events & Media | {config.title}</title>
+      </Head>
+
       <PageHeader page="Events & Media" title="Don’t miss out!" />
+
       <article className="relative">
         {/* Sticky links */}
         <section className="bg-primary-500 shadow-xl sticky top-0 z-40">
@@ -32,41 +38,31 @@ function Index(props) {
         </section>
 
         {/* Upcoming Events */}
-        <section id="Events" className="px-8 py-32 bg-gray-200">
+        <section id="Events" className="px-8 pt-32 pb-16 bg-gray-200">
           <div className="max-w-screen-xl mx-auto">
             <h4 className="text-3xl text-center">Upcoming Events</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              {events.map(
-                ({ _id, title = '', slug = '', _updatedAt = '' }) =>
-                  slug && (
-                    <Card key={_id}>
-                      <Link href="/event/[slug]" as={`/event/${slug.current}`}>
-                        <a>{title}</a>
-                      </Link>{' '}
-                      ({new Date(_updatedAt).toDateString()})
-                    </Card>
-                  )
-              )}
+              {events.map((event) => event.slug && <CardEvent data={event} key={event._id} />)}
             </div>
-            <div className="text-center mt-20">
-              <button className="inline-flex items-center text-gray-500 text-lg">
-                <span className="mr-4">See More Events</span>
-                <span>
-                  <svg
-                    width="12"
-                    height="8"
-                    viewBox="0 0 12 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.59 0L6 4.58L1.41 0L0 1.41L6 7.41L12 1.41L10.59 0Z"
-                      fill="#999999"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+            {/* <div className="text-center mt-20">
+            <button className="inline-flex items-center text-gray-500 text-lg">
+              <span className="mr-4">See More Events</span>
+              <span>
+                <svg
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.59 0L6 4.58L1.41 0L0 1.41L6 7.41L12 1.41L10.59 0Z"
+                    fill="#999999"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div> */}
           </div>
         </section>
 
@@ -75,18 +71,7 @@ function Index(props) {
           <div className="max-w-screen-xl mx-auto">
             <h4 className="text-3xl text-center">Media</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <Card />
-              {posts.map(
-                ({ _id, title = '', slug = '', _updatedAt = '' }) =>
-                  slug && (
-                    <li key={_id}>
-                      <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                        <a>{title}</a>
-                      </Link>{' '}
-                      ({new Date(_updatedAt).toDateString()})
-                    </li>
-                  )
-              )}
+              {posts.map((post) => post.slug && <CardPost data={post} key={post._id} />)}
             </div>
           </div>
         </section>
@@ -104,7 +89,7 @@ function Index(props) {
 
 Index.getInitialProps = async () => ({
   events: await client.fetch(groq`
-    *[_type == "event"]|order(publishedAt desc)
+    *[_type == "event"]|order(date desc)
   `),
   posts: await client.fetch(groq`
     *[_type == "post"]|order(publishedAt desc)

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import HeaderLink from './HeaderLink';
+import ButtonDonate from '@/components/ButtonDonate';
 
 const Header = (props) => {
   const router = useRouter();
@@ -25,9 +26,7 @@ const Header = (props) => {
               <div className="whitespace-no-wrap cursor-pointer">Hockessin Colored School #107</div>
             </Link>
             <div className="lg:hidden flex items-center">
-              <a href="/donate" className="button text-base">
-                Donate
-              </a>
+              <ButtonDonate className="button text-base" />
               <div className="ml-8">
                 <svg
                   className="w-6 h-6"
@@ -102,12 +101,7 @@ const Header = (props) => {
               </HeaderLink>
             </div>
             <div className="hidden ml-4 lg:inline-block">
-              <a
-                href="/donate"
-                className={`button ${isHomepage ? 'button-white' : 'button-accent'}`}
-              >
-                Donate
-              </a>
+              <ButtonDonate className={`button ${isHomepage ? 'button-white' : 'button-accent'}`} />
             </div>
           </nav>
         </div>

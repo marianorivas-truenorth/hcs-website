@@ -1,16 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import groq from 'groq';
 import client from '../client';
-import Layout from '../components/Layout';
-import { Hero } from '../components/sections';
+import Layout from '@/components/Layout';
+import ButtonDonate from '@/components/ButtonDonate';
+import CardEvent from '@/components/CardEvent';
+import { Hero } from '@/components/sections';
 
 function Index(props) {
-  const { events = [] } = props;
-  // console.log(events);
+  const { config, events = [] } = props;
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>{config.title}</title>
+      </Head>
+
       <Hero slides={[]} />
 
       {/* CTA */}
@@ -111,7 +117,7 @@ function Index(props) {
           </div>
 
           <div className="text-center py-16 md:pb-0">
-            <a href="#" className="button">
+            <a href="/out-history" className="button">
               Explore the Full Timeline
             </a>
           </div>
@@ -140,9 +146,7 @@ function Index(props) {
               </cite>
             </div>
             <div className="text-center w-full md:w-2/5 md:pl-8">
-              <a href="#" className="button button-accent inline-block my-3">
-                Donate Now
-              </a>
+              <ButtonDonate className="button button-accent inline-block my-3" label="Donate Now" />
               <figure className="text-center">
                 <img
                   src="/assets/images/illustration-donate.svg"
@@ -203,7 +207,7 @@ function Index(props) {
           </div>
         </div>
         <div className="text-center mt-4">
-          <Link href="/about">
+          <Link href="/about/vision">
             <button className="button">More About Our Vision for the Future</button>
           </Link>
         </div>
@@ -212,36 +216,16 @@ function Index(props) {
       {/* Events and Media */}
       <section className="bg-gray-200 py-16">
         <div className="max-w-screen-xl mx-auto px-8">
-          <div className="text-3xl text-center mb-4">Upcoming Events</div>
+          <div className="text-3xl text-primary-900 font-bold text-center mb-8">
+            Upcoming Events
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 mb-24">
-            {events.map(
-              ({ _id, title = '', slug = '', _updatedAt = '' }) =>
-                slug && (
-                  <article className="bg-white rounded-md shadow-lg" key={_id}>
-                    <figure>
-                      <Link href="/event/[slug]" as={`/event/${slug.current}`}>
-                        <img
-                          src="/assets/images/about/exterior-school.jpg"
-                          className="object-cover h-48 w-full rounded-t-md"
-                          alt={title}
-                        />
-                      </Link>{' '}
-                    </figure>
-                    <div className="p-8">
-                      <Link href="/event/[slug]" as={`/event/${slug.current}`}>
-                        <a className="text-2xl text-primary-600">{title}</a>
-                      </Link>{' '}
-                      <div className="text-base mt-2">Dr. Lanette Edwards & HCS Board Students</div>
-                      <div className="text-base font-bold">
-                        {new Date(_updatedAt).toDateString()}
-                      </div>
-                    </div>
-                  </article>
-                )
-            )}
+            {events.map((event) => event.slug && <CardEvent data={event} key={event._id} />)}
           </div>
 
-          <div className="text-3xl text-center mb-4">Articles & Media About Our Mission</div>
+          <div className="text-3xl text-primary-900 font-bold text-center mb-8">
+            Articles & Media About Our Mission
+          </div>
 
           <article className="grid grid-cols-1 md:grid-cols-2 gap-x-20 my-12">
             <div>
@@ -330,7 +314,7 @@ function Index(props) {
         </div>
 
         <div className="text-center">
-          <Link href="/news">
+          <Link href="/events-and-media">
             <button className="button">Events &amp; Media</button>
           </Link>
         </div>
@@ -377,7 +361,7 @@ function Index(props) {
 
 Index.getInitialProps = async () => ({
   events: await client.fetch(groq`
-    *[_type == "event"]
+    *[_type == "event"][0..2]|order(date desc)
   `),
 });
 

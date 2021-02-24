@@ -1,12 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../../components/Layout';
-import { Banner, PageHeader, PressContact } from '../../components/sections';
-import Card from '../../components/Card';
+import Head from 'next/head';
+import Layout from '@/components/Layout';
+import { Banner, PageHeader, PressContact } from '@/components/sections';
+import Card from '@/components/Card';
 
 function Index(props) {
+  const { config } = props;
+
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>HCS in the Press | {config.title}</title>
+      </Head>
+
       <PageHeader page="About Us" title="HCS in the Press" />
 
       <section className="bg-gray-200">

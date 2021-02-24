@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../../components/Layout';
-import { Banner, PageHeader } from '../../components/sections';
+import Head from 'next/head';
+import Layout from '@/components/Layout';
+import { Banner, PageHeader } from '@/components/sections';
 
 const Member = ({ picture, name, role }) => {
   return (
@@ -26,10 +27,14 @@ const Member = ({ picture, name, role }) => {
 };
 
 function Index(props) {
-  // console.log(events);
+  const { config } = props;
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>Meet Our Board Members | {config.title}</title>
+      </Head>
+
       <PageHeader page="About Us" title="Meet Our Board Members" />
 
       {/* board */}

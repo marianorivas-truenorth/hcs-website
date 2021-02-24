@@ -1,9 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import Scrollspy from 'react-scrollspy';
 import client from '../client';
-import Layout from '../components/Layout';
-import { Banner, PageHeader } from '../components/sections';
+import Layout from '@/components/Layout';
+import VolunteerForm from '@/components/VolunteerForm';
+import Mailchimp from '@/components/Mailchimp';
+import { Banner, PageHeader } from '@/components/sections';
+import ButtonDonate from '@/components/ButtonDonate';
 
 const IconFlag = ({ className }) => (
   <span className={className}>
@@ -14,11 +18,16 @@ const IconFlag = ({ className }) => (
 );
 
 function Index(props) {
-  // console.log(events);
+  const { config } = props;
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>Get Involver | {config.title}</title>
+      </Head>
+
       <PageHeader page="Get Involved" title="Become a part of our mission" />
+
       <article className="relative">
         {/* Sticky links */}
         <section className="bg-primary-500 shadow-xl sticky top-0 z-40">
@@ -79,7 +88,7 @@ function Index(props) {
             </div>
             <div className="md:w-2/5">
               <div className="flex flex-col justify-center items-center min-h-full text-center">
-                <button className="button">Send Your Donation</button>
+                <ButtonDonate label="Send Your Donation" />
                 <p className="text-base flex items-center justify-center">
                   <span>Powered by</span>{' '}
                   <img src="/assets/images/logo-paypal.png" alt="PayPal" className="ml-2" />
@@ -104,31 +113,7 @@ function Index(props) {
             <div className="md:w-3/5">
               <h3 className="mb-6 text-gray-800 text-4xl">Subscribe to our Newsletter</h3>
               <p>Receive periodic news updates on our progress, programming and more!</p>
-              <form>
-                <div className="mb-4">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Jane Doe"
-                    className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    id="email"
-                    type="text"
-                    placeholder="jane.doe@email.com"
-                    className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                  />
-                </div>
-                <div className="mt-8">
-                  <button type="submit" className="button">
-                    Sign Up
-                  </button>
-                </div>
-              </form>
+              <Mailchimp actionUrl="https://hockessincoloredschool107.us1.list-manage.com/subscribe/post?u=178f276496ca736dd75a3afd5&amp;id=e314cd856b" />
             </div>
             <div className="md:w-2/5">
               <figure className="text-center w-full">
@@ -151,40 +136,7 @@ function Index(props) {
                 Together, we can do more. Let's bring our abilities and passions together to
                 effectuate systemic change.
               </p>
-              <form>
-                <div className="mb-4">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Jane Doe"
-                    className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    id="email"
-                    type="text"
-                    placeholder="jane.doe@email.com"
-                    className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="message">What are you interested in doing?</label>
-                  <textarea
-                    id="message"
-                    type="text"
-                    placeholder="What type of programs interest you?"
-                    className="w-full rounded-md border border-gray-400 bg-white px-2 py-1 text-gray-700"
-                  />
-                </div>
-                <div className="mt-8">
-                  <button type="submit" className="button">
-                    Get Started
-                  </button>
-                </div>
-              </form>
+              <VolunteerForm />
             </div>
             <div className="md:w-2/5">
               <figure className="text-center w-full">

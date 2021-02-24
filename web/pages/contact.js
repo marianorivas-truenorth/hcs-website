@@ -1,42 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/Layout';
-import { Banner, PageHeader, PressContact } from '../components/sections';
-import ContactForm from '../components/ContactForm';
+import Head from 'next/head';
+import Layout from '@/components/Layout';
+import { Banner, PageHeader, PressContact } from '@/components/sections';
+import ContactForm from '@/components/ContactForm';
 
 function Index(props) {
-  // console.log(events);
-  const handleOnSubmit = async (event) => {
-    event.preventDefault();
-
-    const res = await fetch('/api/contact', {
-      body: JSON.stringify({
-        name: event.target.name.value,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
-
-    const result = await res.json();
-    console.log(result);
-    // result.user => 'Ada Lovelace'
-  };
+  const { config } = props;
 
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>Contact | {config.title}</title>
+      </Head>
+
       <PageHeader page="Contact" title="We would love to hear from you" />
 
-      <section className="max-w-screen-xl mx-auto py-16 border-b border-gray-400">
+      <section className="max-w-screen-xl mx-auto py-16">
         <div className="md:flex">
           <article className="md:w-3/5">
             <ContactForm />
-            <form onSubmit={handleOnSubmit}>
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" autoComplete="name" required />
-              <button type="submit">Register</button>
-            </form>
           </article>
 
           <aside className="md:w-2/5 md:ml-20">

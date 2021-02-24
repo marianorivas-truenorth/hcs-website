@@ -32,7 +32,7 @@ const SectionContent = ({ className = '', ...otherProps }) => {
       SecureToken: 'e9f83ea8-7fa8-41b4-9007-1ce2bbc56ea5',
       From: 'webmaster.hcs107@gmail.com',
       To: 'webmaster.hcs107@gmail.com',
-      Subject: 'New web connection',
+      Subject: 'New web volunteer',
       Body: msgBody,
     }).then((message) => console.log(message));
 
@@ -73,8 +73,8 @@ const SectionContent = ({ className = '', ...otherProps }) => {
       <div className="mb-4">
         <FormTextarea
           name="message"
-          label="Message"
-          placeholder=" "
+          label="What are you interested in doing?"
+          placeholder="What type of programs interest you?"
           register={register}
           errors={errors.message}
         />

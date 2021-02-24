@@ -1,11 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/Layout';
-import { Banner, PageHeader } from '../components/sections';
+import Head from 'next/head';
+import Layout from '@/components/Layout';
+import { Banner, PageHeader } from '@/components/sections';
 
 function Index(props) {
+  const { config } = props;
+
   return (
-    <Layout>
+    <Layout config={config}>
+      <Head>
+        <title>Our History | {config.title}</title>
+      </Head>
       <PageHeader page="Our History" title="Inspiring future outcomes" />
 
       {/* Intro */}

@@ -6,7 +6,8 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
@@ -15,14 +16,26 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
-    // {
-    //   name: 'author',
-    //   title: 'Author',
-    //   type: 'reference',
-    //   to: { type: 'author' }
-    // },
+    {
+      name: 'summary',
+      title: 'Summary',
+      type: 'string'
+    },
+    {
+      name: 'date',
+      title: 'Event date',
+      type: 'datetime',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'link',
+      title: 'Event Link',
+      type: 'string',
+      validation: Rule => Rule.required()
+    },
     {
       name: 'mainImage',
       title: 'Main image',
@@ -31,16 +44,11 @@ export default {
         hotspot: true
       }
     },
-    // {
-    //   name: 'categories',
-    //   title: 'Categories',
-    //   type: 'array',
-    //   of: [{ type: 'reference', to: { type: 'category' } }]
-    // },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime'
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }]
     },
     {
       name: 'body',
@@ -54,12 +62,6 @@ export default {
       title: 'title',
       author: 'author.name',
       media: 'mainImage'
-    },
-    prepare(selection) {
-      const { author } = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`
-      })
     }
   }
 }
