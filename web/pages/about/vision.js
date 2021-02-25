@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '@/components/Layout';
-import { Banner, PageHeader } from '@/components/sections';
+import PageHeader from '@/components/PageHeader';
+import Banner from '@/components/Banner';
 
 function Index(props) {
   const { config } = props;
@@ -24,7 +25,7 @@ function Index(props) {
       </section>
 
       {/* Body */}
-      <section className="px-8 py-16">
+      <section className="px-8 py-20">
         <div className="max-w-screen-lg mx-auto">
           <div className="text-center">
             <h4 className="text-gray-500 mb-4">Programming & Impact</h4>
@@ -33,12 +34,12 @@ function Index(props) {
             </h2>
           </div>
 
-          <article className="my-16 flex items-center">
+          <article className="mt-20 flex items-center">
             <div className="w-1/2">
               <figure className="w-full">
                 <img
-                  src="/assets/images/our-history/HCS-floorplan.jpg"
-                  alt="Floorplan"
+                  src="/assets/images/about/vision-education.jpg"
+                  alt="Educational Enrichment"
                   className="w-full rounded-lg shadow-lg"
                 />
               </figure>
@@ -49,25 +50,19 @@ function Index(props) {
                 <h4 className="my-4">
                   Living history of HCS #107 for educational enrichment of K-12 students.
                 </h4>
-                <ul>
-                  <li>
-                    <span className="text-primary-600">–</span> Active School Programs
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Reading & Math Tutoring (ESL)
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Executive Functioning Skills
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Outdoor Nature Learning
-                  </li>
-                </ul>
+                <List
+                  items={[
+                    'Active School Programs',
+                    'Reading & Math Tutoring (ESL)',
+                    'Executive Functioning Skills',
+                    'Outdoor Nature Learning',
+                  ]}
+                />
               </div>
             </div>
           </article>
 
-          <article className="my-16 flex items-center">
+          <article className="mt-20 flex items-center">
             <div className="w-1/2">
               <div className="mr-20">
                 <div className="text-primary-600">Diversity Training</div>
@@ -76,64 +71,47 @@ function Index(props) {
                 </h4>
 
                 <h4 className="mt-8 mb-2">Targeting audiences such as:</h4>
-                <ul className="text-base">
-                  <li>
-                    <span className="text-primary-600">–</span> Public & Private Schools, Colleges,
-                    Universities
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> County, City, State, Local Depts.
-                    (Police, Fire, etc.)
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Public & Private Enterprises
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Small Businesses
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Healthcare Systems & Medical-Dental
-                    Providers
-                  </li>
-                </ul>
+                <List
+                  className="text-base"
+                  items={[
+                    'Public & Private Schools, Colleges, Universities',
+                    'County, City, State, Local Depts. (Police, Fire, etc.)',
+                    'Public & Private Enterprises',
+                    'Small Businesses',
+                    'Healthcare Systems & Medical-Dental Providers',
+                  ]}
+                />
 
                 <h4 className="mt-8 mb-2">With topics including:</h4>
-                <ul className="text-base">
-                  <li>
-                    <span className="text-primary-600">–</span> Ethnicities
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Gender Identity and Genetics
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Public Safety and Social Justice
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Social Determinants of Health
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Harassment and Cyber Bullying
-                  </li>
-                </ul>
+                <List
+                  className="text-base"
+                  items={[
+                    'Ethnicities',
+                    'Gender Identity and Genetics',
+                    'Public Safety and Social Justice',
+                    'Social Determinants of Health',
+                    'Harassment and Cyber Bullying',
+                  ]}
+                />
               </div>
             </div>
             <div className="w-1/2">
               <figure className="w-full">
                 <img
-                  src="/assets/images/our-history/HCS-floorplan.jpg"
-                  alt="Floorplan"
+                  src="/assets/images/about/vision-diversity.jpg"
+                  alt="Diversity Training"
                   className="w-full rounded-lg shadow-lg"
                 />
               </figure>
             </div>
           </article>
 
-          <article className="my-16 flex items-center">
+          <article className="mt-20 flex items-center">
             <div className="w-1/2">
               <figure className="w-full">
                 <img
-                  src="/assets/images/our-history/HCS-floorplan.jpg"
-                  alt="Floorplan"
+                  src="/assets/images/about/vision-infrastructure.jpg"
+                  alt="Social Infrastructure"
                   className="w-full rounded-lg shadow-lg"
                 />
               </figure>
@@ -144,23 +122,15 @@ function Index(props) {
                 <h4 className="my-4">
                   A space for innovation and collaboration in service to our community.
                 </h4>
-                <ul>
-                  <li>
-                    <span className="text-primary-600">–</span> Healthcare
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Education
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Affordable housing
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Social justice
-                  </li>
-                  <li>
-                    <span className="text-primary-600">–</span> Inclusive economic deveopment
-                  </li>
-                </ul>
+                <List
+                  items={[
+                    'Healthcare',
+                    'Education',
+                    'Affordable housing',
+                    'Social justice',
+                    'Inclusive economic deveopment',
+                  ]}
+                />
               </div>
             </div>
           </article>
@@ -189,12 +159,15 @@ function Index(props) {
               <div className="p-6">
                 <div className="text-accent-300 font-semibold">Exterior of Existing School</div>
                 <div className="text-white mt-2">
-                  <ul>
-                    <li>– Walking Trails</li>
-                    <li>– Picnic Areas</li>
-                    <li>– Tent Area for Larger Events</li>
-                    <li>– Ample Parking</li>
-                  </ul>
+                  <List
+                    items={[
+                      'Walking Trails',
+                      'Picnic Areas',
+                      'Tent Area for Larger Events',
+                      'Ample Parking',
+                    ]}
+                    bulletColor="text-accent-300"
+                  />
                 </div>
               </div>
             </article>
@@ -209,13 +182,16 @@ function Index(props) {
               <div className="p-6">
                 <div className="text-accent-300 font-semibold">Interior of Existing School</div>
                 <div className="text-white mt-2">
-                  <ul>
-                    <li>– Meeting & Conference Space</li>
-                    <li>– Multimedia Exhibits</li>
-                    <li>– Coworking Space</li>
-                    <li>– Special Events</li>
-                    <li>– Broadcast Studio</li>
-                  </ul>
+                  <List
+                    items={[
+                      'Meeting & Conference Space',
+                      'Multimedia Exhibits',
+                      'Coworking Space',
+                      'Special Events',
+                      'Broadcast Studio',
+                    ]}
+                    bulletColor="text-accent-300"
+                  />
                 </div>
               </div>
             </article>
@@ -230,12 +206,15 @@ function Index(props) {
               <div className="p-6">
                 <div className="text-accent-300 font-semibold">Garden & Event Space</div>
                 <div className="text-white mt-2">
-                  <ul>
-                    <li>– Community Garden</li>
-                    <li>– Outdoor Amphitheater</li>
-                    <li>– Underground Railroad Commemorative</li>
-                    <li>– Solar Panel Array</li>
-                  </ul>
+                  <List
+                    items={[
+                      'Community Garden',
+                      'Outdoor Amphitheater',
+                      'Underground Railroad Commemorative',
+                      'Solar Panel Array',
+                    ]}
+                    bulletColor="text-accent-300"
+                  />
                 </div>
               </div>
             </article>
@@ -246,11 +225,23 @@ function Index(props) {
       <Banner
         title="Learn how you can get involved"
         action="There are so many ways to contribute"
-        link="#"
+        link="/get-involved"
         icon="/assets/images/illustration-skate.svg"
       />
     </Layout>
   );
 }
+
+const List = ({ items = [], bulletColor = 'text-primary-600', className = '' }) => {
+  return (
+    <ul className={className}>
+      {items.map((item) => (
+        <li key={item}>
+          <span className={bulletColor}>–</span> {item}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default Index;

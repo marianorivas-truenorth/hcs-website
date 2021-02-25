@@ -2,11 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const HeaderLink = ({ href = '#', children, parent = 'parent' }) => {
+const HeaderLink = ({ href = '#', children, parent }) => {
   const router = useRouter();
 
   let className =
-    children.props.className || 'py-1 font-bold relative no-underline border-b-4 cursor-pointer';
+    children.props.className ||
+    'py-1 font-bold relative no-underline border-b-4 transition duration-200 ease-in-out cursor-pointer';
 
   // Homepage variation
   if (router.pathname === '/') {
@@ -25,7 +26,7 @@ const HeaderLink = ({ href = '#', children, parent = 'parent' }) => {
     className = `${className} border-transparent hover:border-accent-500`;
   }
 
-  if (isActiveParent) {
+  if (parent) {
     return <div>{React.cloneElement(children, { className })}</div>;
   }
 

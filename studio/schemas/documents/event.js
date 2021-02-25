@@ -33,7 +33,7 @@ export default {
     {
       name: 'link',
       title: 'Event Link',
-      type: 'string',
+      type: 'url',
       validation: Rule => Rule.required()
     },
     {

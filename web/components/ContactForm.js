@@ -6,6 +6,7 @@ import ButtonSubmit from './ButtonSubmit';
 import FormInput from './FormInput';
 import FormTextarea from './FormTextarea';
 import * as yup from 'yup';
+import appConfig from '../config';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -29,9 +30,9 @@ const SectionContent = ({ className = '', ...otherProps }) => {
     msgBody += 'Message: ' + data.message;
 
     await Email.send({
-      SecureToken: 'e9f83ea8-7fa8-41b4-9007-1ce2bbc56ea5',
-      From: 'webmaster.hcs107@gmail.com',
-      To: 'webmaster.hcs107@gmail.com',
+      SecureToken: appConfig.twilioSecureToken,
+      From: appConfig.twilioFrom,
+      To: appConfig.contactTo,
       Subject: 'New web connection',
       Body: msgBody,
     }).then((message) => console.log(message));

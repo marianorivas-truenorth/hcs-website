@@ -5,9 +5,10 @@ import Head from 'next/head';
 import Scrollspy from 'react-scrollspy';
 import client from '../client';
 import Layout from '@/components/Layout';
-import { Banner, PageHeader } from '@/components/sections';
-import CardPost from '@/components/CardPost';
+import PageHeader from '@/components/PageHeader';
 import CardEvent from '@/components/CardEvent';
+import CardPost from '@/components/CardPost';
+import Banner from '@/components/Banner';
 
 function Index(props) {
   const { config, posts = [], events = [] } = props;
@@ -71,7 +72,14 @@ function Index(props) {
           <div className="max-w-screen-xl mx-auto">
             <h4 className="text-3xl text-center">Media</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              {posts.map((post) => post.slug && <CardPost data={post} key={post._id} />)}
+              {posts.map(
+                (post) =>
+                  post.slug && (
+                    <div key={post._id}>
+                      <CardPost data={post} />
+                    </div>
+                  )
+              )}
             </div>
           </div>
         </section>
@@ -80,7 +88,7 @@ function Index(props) {
       <Banner
         title="So what’s next for HCS #107?"
         action="Learn about our vision for the future"
-        link="#"
+        link="/about/vision"
         icon="/assets/images/illustration-humans.svg"
       />
     </Layout>

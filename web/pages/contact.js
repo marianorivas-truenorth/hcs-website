@@ -2,8 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '@/components/Layout';
-import { Banner, PageHeader, PressContact } from '@/components/sections';
+import PageHeader from '@/components/PageHeader';
 import ContactForm from '@/components/ContactForm';
+import PressContact from '@/components/PressContact';
+import Banner from '@/components/Banner';
 
 function Index(props) {
   const { config } = props;

@@ -19,6 +19,7 @@ function Layout(props) {
           href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Source+Sans+Pro:wght@200;400;600&display=swap"
           rel="stylesheet"
         />
+        {/* SEO */}
       </Head>
       <div className="antialiased w-full text-gray-800 text-xl">
         <Header />

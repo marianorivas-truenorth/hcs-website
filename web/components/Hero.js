@@ -26,13 +26,54 @@ const Hero = ({ slides = [] }) => {
       <div className="overflow-hidden" ref={viewportRef}>
         <div className="flex">
           <div className="relative min-w-full">
-            <CarouselItem />
+            <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
+              <h1 className="text-white leading-snug">
+                <small className="text-xl block mb-2">
+                  Transforming the historic Hockessin school that ended segregation into a
+                </small>
+                <span className="text-2xl md:text-4xl">
+                  Center for Diversity, Inclusion & Social Equity
+                </span>
+              </h1>
+              <div className="text-lg text-accent-400 font-semibold mt-10 leading-snug">
+                “Until we are all free, we are none of us free.”
+                <br />- Emma Lazarus
+              </div>
+            </CarouselItem>
           </div>
+
           <div className="relative min-w-full">
-            <CarouselItem />
+            <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
+              <h1 className="text-white leading-snug">
+                <small className="text-xl block mb-2">
+                  Transforming the historic Hockessin school that ended segregation into a
+                </small>
+                <span className="text-2xl md:text-4xl">
+                  Center for Diversity, Inclusion & Social Equity
+                </span>
+              </h1>
+              <div className="text-lg text-accent-400 font-semibold mt-10 leading-snug">
+                “Until we are all free, we are none of us free.”
+                <br />- Emma Lazarus
+              </div>
+            </CarouselItem>
           </div>
+
           <div className="relative min-w-full">
-            <CarouselItem />
+            <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
+              <h1 className="text-white leading-snug">
+                <small className="text-xl block mb-2">
+                  Transforming the historic Hockessin school that ended segregation into a
+                </small>
+                <span className="text-2xl md:text-4xl">
+                  Center for Diversity, Inclusion & Social Equity
+                </span>
+              </h1>
+              <div className="text-lg text-accent-400 font-semibold mt-10 leading-snug">
+                “Until we are all free, we are none of us free.”
+                <br />- Emma Lazarus
+              </div>
+            </CarouselItem>
           </div>
         </div>
       </div>
@@ -43,25 +84,14 @@ const Hero = ({ slides = [] }) => {
   );
 };
 
-const CarouselItem = () => (
+const CarouselItem = ({ children, background }) => (
   <article
     className="flex items-center justify-center bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: 'url(/assets/images/homepage/hcs-hero-01.jpg)', minHeight: '70vh' }}
+    style={{ backgroundImage: `url(${background})`, minHeight: '70vh' }}
   >
     <div className="filter absolute z-10 inset-0"></div>
     <div className="relative z-20 max-w-4xl mx-auto px-8 py-16 md:py-48 text-center">
-      <h1 className="text-white leading-snug">
-        <small className="text-xl block mb-2">
-          Transforming the historic Hockessin school that ended segregation into a
-        </small>
-        <span className="text-2xl md:text-4xl">
-          Center for Diversity, Inclusion & Social Equity
-        </span>
-      </h1>
-      <div className="text-lg text-accent-400 font-semibold mt-10 leading-snug">
-        “Until we are all free, we are none of us free.”
-        <br />- Emma Lazarus
-      </div>
+      {children}
     </div>
   </article>
 );

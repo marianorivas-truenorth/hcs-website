@@ -6,9 +6,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Document types
 // import page from './documents/page'
-import post from './documents/post'
 import event from './documents/event'
+import post from './documents/post'
+import press from './documents/press'
 // import route from './documents/route'
+import member from './documents/member'
 import siteConfig from './documents/siteConfig'
 
 // Object types
@@ -41,8 +43,10 @@ export default createSchema({
     link,
     // mailchimp,
     // page,
-    post,
     event,
+    post,
+    press,
+    member,
     portableText,
     // route,
     simplePortableText,

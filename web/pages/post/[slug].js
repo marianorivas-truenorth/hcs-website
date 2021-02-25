@@ -1,13 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import groq from 'groq';
 import client from '../../client';
 import imageUrlBuilder from '@sanity/image-url';
 import BlockContent from '@sanity/block-content-to-react';
 import Layout from '@/components/Layout';
+import Banner from '@/components/Banner';
 import Tag from '@/components/Tag';
-import { Banner } from '@/components/sections';
+import appConfig from '../../config';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from 'react-share';
 
 const Post = (props) => {
   const {
@@ -19,6 +29,10 @@ const Post = (props) => {
     mainImage,
     body = [],
   } = props;
+
+  const router = useRouter();
+  const shareUrl = appConfig.baseUrl + router.asPath;
+  const shareTitle = title;
 
   return (
     <Layout config={config}>
@@ -66,15 +80,17 @@ const Post = (props) => {
 
                 {/* Social Sharing */}
                 <nav className="my-8">
-                  <a href="#" className="inline-block mr-4">
-                    <img src="/assets/images/icon-facebook.svg" alt="Facebook" />
-                  </a>
-                  <a href="#" className="inline-block mr-4">
-                    <img src="/assets/images/icon-linkedin.svg" alt="LinkedIn" />
-                  </a>
-                  <a href="#" className="inline-block mr-4">
-                    <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
-                  </a>
+                  <FacebookShareButton url={shareUrl} quote={shareTitle} className="mr-2">
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+
+                  <LinkedinShareButton url={shareUrl} className="mr-2">
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+
+                  <TwitterShareButton url={shareUrl} title={shareTitle} className="mr-2">
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
                 </nav>
               </div>
 
@@ -82,7 +98,6 @@ const Post = (props) => {
                 <div className="md:w-2/5">
                   <figure className="w-full mb-4">
                     <img
-                      src="/assets/images/our-history/HCS-floorplan.jpg"
                       src={urlFor(mainImage).width(620).url()}
                       alt="Floorplan"
                       className="w-full rounded-lg shadow-lg"

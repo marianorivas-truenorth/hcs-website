@@ -4,9 +4,9 @@ import Head from 'next/head';
 import groq from 'groq';
 import client from '../client';
 import Layout from '@/components/Layout';
+import Hero from '@/components/Hero';
 import ButtonDonate from '@/components/ButtonDonate';
 import CardEvent from '@/components/CardEvent';
-import { Hero } from '@/components/sections';
 
 function Index(props) {
   const { config, events = [] } = props;
@@ -51,7 +51,7 @@ function Index(props) {
                 <img
                   src="/assets/images/homepage/1950.png"
                   alt="Picture from 1950"
-                  className="mx-auto"
+                  className="mx-auto max-h-80"
                 />
               </figure>
               <div className="px-8">
@@ -75,7 +75,7 @@ function Index(props) {
                 <img
                   src="/assets/images/homepage/1952.png"
                   alt="Picture from 1952"
-                  className="mx-auto"
+                  className="mx-auto max-h-80"
                 />
               </figure>
               <div className="px-8">
@@ -96,7 +96,7 @@ function Index(props) {
                 <img
                   src="/assets/images/homepage/1954.png"
                   alt="Picture from 1954"
-                  className="mx-auto"
+                  className="mx-auto max-h-80"
                 />
               </figure>
               <div className="px-8">

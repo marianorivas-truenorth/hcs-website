@@ -67,7 +67,7 @@ function Footer(props) {
         </div>
 
         <div className="text-gray-500 text-sm mt-8">
-          <p>Copyright 2020 Hockessin Colored School #107</p>
+          <p>Copyright 2021 Hockessin Colored School #107</p>
         </div>
       </div>
     </footer>

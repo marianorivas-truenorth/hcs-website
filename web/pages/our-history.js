@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '@/components/Layout';
-import { Banner, PageHeader } from '@/components/sections';
+import PageHeader from '@/components/PageHeader';
+import Banner from '@/components/Banner';
 
 function Index(props) {
   const { config } = props;
@@ -31,7 +32,7 @@ function Index(props) {
       <section className="p-8">
         <div className="max-w-screen-xl mx-auto">
           {/* 1920 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1920</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -51,8 +52,9 @@ function Index(props) {
                   </aside>
                   <figure className="w-1/2 ml-8">
                     <img
-                      src="/assets/images/our-history/HCS-original.jpg"
+                      src="/assets/images/our-history/history-1920-school.jpg"
                       alt="Original schoolhouse"
+                      className="w-full rounded-lg shadow-lg"
                     />
                   </figure>
                 </div>
@@ -60,7 +62,7 @@ function Index(props) {
               <div className="ml-12 w-1/2">
                 <figure className="w-full mb-8">
                   <img
-                    src="/assets/images/our-history/HCS-floorplan.jpg"
+                    src="/assets/images/our-history/history-1920-students.jpg"
                     alt="Floorplan"
                     className="w-full rounded-lg shadow-lg"
                   />
@@ -78,7 +80,7 @@ function Index(props) {
           </article>
 
           {/* 1950 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1950</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -94,7 +96,7 @@ function Index(props) {
           </article>
 
           {/* 1951 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1951</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -115,13 +117,16 @@ function Index(props) {
                 </aside>
               </div>
               <div className="ml-12 w-1/2">
-                <img src="/assets/images/our-history/louis-redding.png" alt="Louis Redding" />
+                <img
+                  src="/assets/images/our-history/history-1951-redding.jpg"
+                  alt="Louis Redding"
+                />
               </div>
             </div>
           </article>
 
           {/* 1952 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1952</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -138,8 +143,9 @@ function Index(props) {
                 </div>
                 <figure className="text-base text-gray-700 font-serif mt-8">
                   <img
-                    src="/assets/images/our-history/brown-board-legal-team.jpg"
+                    src="/assets/images/our-history/history-1952-team.jpg"
                     alt="Brown v. Board legal team"
+                    className="w-2/3 rounded-lg shadow-lg mb-2"
                   />
                   <figcaption>Brown v. Board legal team: Names</figcaption>
                 </figure>
@@ -147,8 +153,11 @@ function Index(props) {
 
               <div className="ml-12 w-1/2 text-right">
                 <figure className="text-base text-gray-700 font-serif">
-                  <img src="/assets/images/our-history/louis-redding.png" alt="Louis Redding" />
-                  <figcaption>
+                  <img
+                    src="/assets/images/our-history/history-1952-seitz-shirley.jpg"
+                    alt="Chancellor Collins J. Seitz"
+                  />
+                  <figcaption className="pr-5">
                     Chancellor Collins J. Seitz | Shirley Bulah riding the bus
                   </figcaption>
                 </figure>
@@ -163,7 +172,7 @@ function Index(props) {
           </article>
 
           {/* 1954 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1954</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -175,15 +184,16 @@ function Index(props) {
 
               <div className="ml-12 w-1/2">
                 <img
-                  src="/assets/images/our-history/supreme-court-brown.jpg"
+                  src="/assets/images/our-history/history-1954-supremecourt.jpg"
                   alt="Supreme Court Brown"
+                  className="w-full rounded-lg shadow-lg"
                 />
               </div>
             </div>
           </article>
 
           {/* 1959 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">1959</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12">
@@ -195,7 +205,7 @@ function Index(props) {
           </article>
 
           {/* 2012 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">2012</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
@@ -224,12 +234,16 @@ function Index(props) {
           </article>
 
           {/* 2020 */}
-          <article className="my-12">
+          <article className="my-16">
             <h3 className="mb-4 text-primary-600 text-4xl">2020</h3>
             <div className="border-l border-gray-500 ml-10 py-4 flex">
               <div className="mx-12 w-1/2">
                 <figure>
-                  <img src="/assets/images/our-history/HCS-Today.jpg" alt="HCS Today" />
+                  <img
+                    src="/assets/images/our-history/history-2020-school.jpg"
+                    alt="HCS Today"
+                    className="rounded-lg shadow-lg"
+                  />
                 </figure>
                 <div className="mt-8 text-3xl leading-relaxed">
                   The children’s book “Ride, Shirley, Ride” by Dr. L Richelle is published, sharing
@@ -245,8 +259,9 @@ function Index(props) {
                 </div>
                 <figure className="text-left mt-8">
                   <img
-                    src="/assets/images/our-history/ride-shirley-ride.jpg"
+                    src="/assets/images/our-history/history-2020-book.jpg"
                     alt="Ride Shirley Ride"
+                    className="w-56 rounded-lg shadow-lg"
                   />
                 </figure>
               </div>
@@ -258,7 +273,7 @@ function Index(props) {
       <Banner
         title="So what’s next for HCS #107?"
         action="Learn about our vision for the future"
-        link="#"
+        link="/about/vision"
         icon="/assets/images/illustration-humans.svg"
       />
     </Layout>

@@ -8,7 +8,7 @@ const builder = imageUrlBuilder(client);
 const CardEvent = (props) => {
   const { _id, title = '', summary, date, slug = '', mainImage } = props.data;
   return (
-    <Link href="/event/[slug]" as={`/event/${slug.current}`} key={_id}>
+    <Link href="/event/[slug]" as={`/event/${slug.current}`}>
       <article className="bg-white rounded-md shadow-lg cursor-pointer hover:shadow-xl transition-shadow ease-in-out duration-300">
         {mainImage?.asset ? (
           <figure>

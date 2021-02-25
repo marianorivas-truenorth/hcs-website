@@ -12,7 +12,7 @@ const Banner = ({ title, action, link = '#', icon }) => {
               <Link href={link}>
                 <a className="group text-2xl text-accent-500">
                   {action}
-                  <span className="inline-flex ml-2 group-hover:ml-4">
+                  <span className="inline-flex ml-2 transition ease-in-out duration-300 transform group-hover:translate-x-2">
                     <svg
                       width="16"
                       height="16"

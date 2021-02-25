@@ -2,7 +2,9 @@ import React from 'react';
 
 const FormTextarea = ({ name, label, placeholder, register, errors }) => (
   <>
-    <label htmlFor={label}>{label}</label>
+    <label htmlFor={label} className="mb-2 block">
+      {label}
+    </label>
     <div className="relative">
       <textarea
         name={name}

@@ -4,10 +4,11 @@ import Head from 'next/head';
 import Scrollspy from 'react-scrollspy';
 import client from '../client';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
+import Banner from '@/components/Banner';
+import ButtonDonate from '@/components/ButtonDonate';
 import VolunteerForm from '@/components/VolunteerForm';
 import Mailchimp from '@/components/Mailchimp';
-import { Banner, PageHeader } from '@/components/sections';
-import ButtonDonate from '@/components/ButtonDonate';
 
 const IconFlag = ({ className }) => (
   <span className={className}>
@@ -80,8 +81,22 @@ function Index(props) {
                   </div>
                 </div>
                 <div className="px-6 pb-8">
-                  <Link href="#">
-                    <a className="text-secondary-600">Learn more about our vision for the future</a>
+                  <Link href="/about/vision">
+                    <a className="md:flex items-center group text-secondary-600">
+                      <span>Learn more about our vision for the future</span>
+                      <span className="inline-flex ml-2 transition ease-in-out duration-300 transform group-hover:translate-x-2">
+                        <svg
+                          className="fill-current"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" />
+                        </svg>
+                      </span>
+                    </a>
                   </Link>
                 </div>
               </aside>
@@ -118,9 +133,9 @@ function Index(props) {
             <div className="md:w-2/5">
               <figure className="text-center w-full">
                 <img
-                  src="/assets/images/our-history/HCS-original.jpg"
-                  alt="Original schoolhouse"
-                  className="inline-block"
+                  src="/assets/images/get-involved/get_involved-newsletter.jpg"
+                  alt="Newsletter"
+                  className="inline-block max-w-xs rounded-lg shadow-lg"
                 />
               </figure>
             </div>
@@ -141,9 +156,9 @@ function Index(props) {
             <div className="md:w-2/5">
               <figure className="text-center w-full">
                 <img
-                  src="/assets/images/our-history/HCS-original.jpg"
-                  alt="Original schoolhouse"
-                  className="inline-block"
+                  src="/assets/images/get-involved/get_involved-volunteer.jpg"
+                  alt="Volunteer"
+                  className="inline-block max-w-xs rounded-lg shadow-lg"
                 />
               </figure>
             </div>

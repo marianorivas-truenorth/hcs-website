@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseApp from 'next/app';
 import client from '../client';
-import '../styles/main.css';
+import '@/styles/main.css';
 
 const siteConfigQuery = `*[_id == "global-config"][0]`;
 

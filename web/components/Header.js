@@ -67,7 +67,7 @@ const Header = (props) => {
                 {({ open }) => (
                   <>
                     <Menu.Button className="focus:outline-none">
-                      <HeaderLink href="#" parent="/about">
+                      <HeaderLink parent="/about">
                         <a>About Us +</a>
                       </HeaderLink>
                     </Menu.Button>

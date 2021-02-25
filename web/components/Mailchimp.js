@@ -8,8 +8,8 @@ export default function Mailchimp(props) {
   return (
     <section className="">
       <div className="">
-        <h2 className="">{heading}</h2>
-        <p className="">{subtitle}</p>
+        {heading ? <h2 className="">{heading}</h2> : null}
+        {subtitle ? <p className="">{subtitle}</p> : null}
         {actionUrl && (
           <MailchimpForm
             action={actionUrl}

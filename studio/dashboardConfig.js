@@ -18,16 +18,16 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '6026b619bfa21e1491847fad',
+                  buildHookId: '6036c89302b0dc2d5dce447e',
                   title: 'Sanity Studio',
                   name: 'hcs-website-studio',
-                  apiId: 'c22770e1-bc6b-4dcd-afb0-76cbba731f88'
+                  apiId: '16a9b8b6-01e9-4a1b-992c-583d72838d69'
                 },
                 {
-                  buildHookId: '6026b6191182971339895904',
-                  title: 'Landing pages Website',
+                  buildHookId: '6036c866739b112655468008',
+                  title: 'Website',
                   name: 'hcs-website',
-                  apiId: '9c158708-8162-45a6-9eb6-d3bf5a9d07fe'
+                  apiId: 'a361615c-23ff-49bc-9012-cc926949736d'
                 }
               ]
             }
@@ -36,7 +36,7 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/marianorivas-truenorth/hcs-website',
+            value: 'https://github.com/truenorth-tech/hcs-website',
             category: 'Code'
           },
           { title: 'Frontend', value: 'https://hcs-website.netlify.app', category: 'apps' }

@@ -7,9 +7,9 @@ import Tag from '@/components/Tag';
 const builder = imageUrlBuilder(client);
 
 const CardPost = (props) => {
-  const { _id, title = '', publishedAt, tags, slug = '', mainImage } = props.data;
+  const { _id, title = '', publishedAt, author, tags, slug = '', mainImage } = props.data;
   return (
-    <Link href="/post/[slug]" as={`/post/${slug.current}`} key={_id}>
+    <Link href="/post/[slug]" as={`/post/${slug.current}`}>
       <article className="bg-white rounded-md shadow-lg cursor-pointer hover:shadow-xl transition-shadow ease-in-out duration-300">
         {mainImage?.asset ? (
           <figure>
@@ -24,17 +24,18 @@ const CardPost = (props) => {
           <Link href="/post/[slug]" as={`/post/${slug.current}`}>
             <a className="text-2xl text-primary-600 leading-tight mb-2">{title}</a>
           </Link>
+          {author ? <div className="text-base my-2 font-bold">{author}</div> : null}
           {publishedAt ? (
-            <div className="text-base font-bold">{new Date(publishedAt).toDateString()}</div>
+            <div className="text-base">{new Date(publishedAt).toDateString()}</div>
           ) : null}
-          <div className="mt-2">
+          <div className="mt-8">
             <ul className="flex">
               {tags?.length > 0 ? (
                 tags.map((tag) => {
                   if (tag !== '')
                     return (
-                      <li className="mr-2">
-                        <Tag label={tag} key={tag} />
+                      <li className="mr-2" key={tag}>
+                        <Tag label={tag} />
                       </li>
                     );
                 })
