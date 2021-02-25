@@ -16,11 +16,11 @@ function Index(props) {
         <title>404 | {config.title}</title>
       </Head>
 
-      <PageHeader page="Error 404" title="Page not found" />
+      <PageHeader page="Error 404" title="Sorry, we can't find that page!" />
 
       <Banner
-        title="So what’s next?"
-        action="Go to HCS #107 homepage"
+        title="Can't find what you're looking for?"
+        action="Contact us"
         link="/"
         icon="/assets/images/illustration-skate.svg"
       />
