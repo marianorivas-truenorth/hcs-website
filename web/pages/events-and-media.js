@@ -23,14 +23,14 @@ function Index(props) {
 
       <article className="relative">
         {/* Sticky links */}
-        <section className="bg-primary-500 shadow-xl sticky top-0 z-40">
+        <section className="bg-primary-500 shadow-xl sticky top-14 md:top-0 z-40">
           <div className="max-w-screen-lg mx-auto text-center text-white py-4">
             <nav className="stickynav flex items-center justify-center">
               <Scrollspy items={['Events', 'Media']} currentClassName="active">
-                <a href="#Events" className="button shadow-none mx-2">
+                <a href="#Events" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
                   Events
                 </a>
-                <a href="#Media" className="button shadow-none mx-2">
+                <a href="#Media" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
                   Media
                 </a>
               </Scrollspy>
@@ -42,7 +42,7 @@ function Index(props) {
         <section id="Events" className="px-8 pt-32 pb-16 bg-gray-200">
           <div className="max-w-screen-xl mx-auto">
             <h4 className="text-3xl text-center">Upcoming Events</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mt-16">
               {events.map((event) => event.slug && <CardEvent data={event} key={event._id} />)}
             </div>
             {/* <div className="text-center mt-20">
@@ -71,7 +71,7 @@ function Index(props) {
         <section id="Media" className="px-8 py-32 bg-gray-200">
           <div className="max-w-screen-xl mx-auto">
             <h4 className="text-3xl text-center">Media</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mt-16">
               {posts.map(
                 (post) =>
                   post.slug && (

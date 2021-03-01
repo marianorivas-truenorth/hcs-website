@@ -7,7 +7,7 @@ const HeaderLink = ({ href = '#', children, parent }) => {
 
   let className =
     children.props.className ||
-    'py-1 font-bold relative no-underline border-b-4 transition duration-200 ease-in-out cursor-pointer';
+    'p-1 md:px-0 font-bold relative no-underline border-b-4 transition duration-200 ease-in-out cursor-pointer';
 
   // Homepage variation
   if (router.pathname === '/') {

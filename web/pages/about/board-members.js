@@ -20,8 +20,8 @@ function Index(props) {
       <PageHeader page="About Us" title="Meet Our Board Members" />
 
       {/* board */}
-      <section className="px-8 py-20">
-        <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+      <section className="p-8 md:py-20">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 md:gap-10">
           {members.map((member) => (
             <Member
               key={member._id}
@@ -55,11 +55,11 @@ const Member = ({ mainImage, name, role }) => {
         {mainImage ? (
           <img
             src={urlFor(mainImage).width(320).url()}
+            className="w-24 h-24 lg:w-48 lg:h-48 mx-auto rounded-full border-4 border-gray-300"
             alt={name}
-            className="w-48 h-48 rounded-full border-4 border-gray-300"
           />
         ) : (
-          <div className="w-48 h-48 rounded-full border-4 border-gray-300 bg-gray-400"></div>
+          <div className="w-24 h-24 lg:w-48 lg:h-48 mx-auto rounded-full border-4 border-gray-300 bg-gray-400"></div>
         )}
       </figure>
       <div className="mt-2">

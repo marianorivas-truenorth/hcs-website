@@ -20,8 +20,8 @@ function Index(props) {
       <Hero slides={[]} />
 
       {/* CTA */}
-      <section className="bg-gray-300 relative z-40">
-        <div className="max-w-screen-md mx-auto transform -translate-y-8 md:-translate-y-1/2 md:flex text-center bg-primary-500 px-12 py-8 rounded-lg md:rounded-full border-4 border-primary-300 items-center shadow-xl font-light justify-center">
+      <section className="bg-gray-300 relative z-40 px-4 lg:px-0">
+        <div className="max-w-screen-md mx-auto transform -translate-y-8 md:-translate-y-1/2 md:flex text-center bg-primary-500 px-8 md:px-12 py-8 rounded-lg md:rounded-full border-4 border-primary-300 items-center shadow-xl font-light justify-center">
           <div className="text-white font-semibold text-2xl mb-6 md:mb-0">
             There are so many ways you can participate.
           </div>
@@ -44,7 +44,7 @@ function Index(props) {
           </div>
         </div>
 
-        <div className="max-w-screen-xl mx-auto transform md:-translate-y-32">
+        <div className="max-w-screen-xl mx-auto transform -translate-y-32">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <article className="text-lg">
               <figure>
@@ -219,7 +219,7 @@ function Index(props) {
           <div className="text-3xl text-primary-900 font-bold text-center mb-8">
             Upcoming Events
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-12 mt-12 mb-24">
             {events.map((event) => event.slug && <CardEvent data={event} key={event._id} />)}
           </div>
 
@@ -231,12 +231,14 @@ function Index(props) {
             <div>
               <div className="flex items-end mb-6">
                 <img src="/assets/images/logo-nrp.png" alt="NRP" className="h-8 mr-4" />
-                <div className="text-base">Featured by NPR via Delmarva Public Media</div>
+                <div className="text-sm md:text-base leading-tight">
+                  Featured by NPR via Delmarva Public Media
+                </div>
               </div>
               <div className="text-2xl font-bold leading-tight text-primary-600 mb-6">
                 Saving Delaware School That Brought Down Segregation
               </div>
-              <audio controls className="focus:outline-none">
+              <audio controls className="focus:outline-none mb-4">
                 <source src="/assets/audio/new-saving-delaware-school.mp3" type="audio/mpeg" />
                 Your browser does not support the audio element.
               </audio>
@@ -286,12 +288,14 @@ function Index(props) {
             <div>
               <div className="flex items-end mb-6">
                 <img src="/assets/images/logo-nrp.png" alt="NRP" className="h-8 mr-4" />
-                <div className="text-base">Featured by NPR via Delmarva Public Media</div>
+                <div className="text-sm md:text-base leading-tight">
+                  Featured by NPR via Delmarva Public Media
+                </div>
               </div>
               <div className="text-2xl font-bold leading-tight text-primary-600 mb-6">
                 The Impact of the End of Segregation on Hockessin African American Community
               </div>
-              <audio controls className="focus:outline-none">
+              <audio controls className="focus:outline-none mb-4">
                 <source
                   src="/assets/audio/the-impact-of-the-end-of-segregation.mp3"
                   type="audio/mpeg"

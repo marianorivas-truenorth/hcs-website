@@ -31,17 +31,23 @@ function Index(props) {
 
       <article className="relative">
         {/* Sticky links */}
-        <section className="bg-primary-500 shadow-xl sticky top-0 z-40">
+        <section className="bg-primary-500 shadow-xl sticky top-14 md:top-0 z-40">
           <div className="max-w-screen-lg mx-auto text-center text-white py-4">
             <nav className="stickynav flex items-center justify-center">
               <Scrollspy items={['Donate', 'Subscribe', 'Volunteer']} currentClassName="active">
-                <a href="#Donate" className="button shadow-none mx-2">
+                <a href="#Donate" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
                   Donate
                 </a>
-                <a href="#Subscribe" className="button shadow-none mx-2">
+                <a
+                  href="#Subscribe"
+                  className="button shadow-none mx-1 text-base md:mx-2 md:text-xl"
+                >
                   Subscribe
                 </a>
-                <a href="#Volunteer" className="button shadow-none mx-2">
+                <a
+                  href="#Volunteer"
+                  className="button shadow-none mx-1 text-base md:mx-2 md:text-xl"
+                >
                   Volunteer
                 </a>
               </Scrollspy>
@@ -51,8 +57,8 @@ function Index(props) {
 
         {/* Donate */}
         <section id="Donate" className="px-8 py-32 bg-gray-200">
-          <div className="max-w-screen-xl mx-auto md:flex">
-            <div className="md:w-3/5">
+          <div className="max-w-screen-xl mx-auto lg:flex">
+            <div className="lg:w-3/5 mb-8">
               <h3 className="mb-6 text-gray-800 text-4xl">Donate</h3>
               <p>
                 Our Board has spent many years identifying the ideal programming direction for the
@@ -62,7 +68,7 @@ function Index(props) {
                 <div className="px-6 py-4 bg-primary-200 rounded-t-lg">
                   <h4 className="text-gray-900">Your support will enable us to meet our goals.</h4>
                 </div>
-                <div className="grid md:grid-flow-col grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-2 p-6">
+                <div className="grid lg:grid-flow-col grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-2 p-6">
                   <div className="flex items-center font-semibold">
                     <IconFlag className="mr-4" />
                     <span>Living history for student enrichment</span>
@@ -82,7 +88,7 @@ function Index(props) {
                 </div>
                 <div className="px-6 pb-8">
                   <Link href="/about/vision">
-                    <a className="md:flex items-center group text-secondary-600">
+                    <a className="lg:flex items-center group text-secondary-600">
                       <span>Learn more about our vision for the future</span>
                       <span className="inline-flex ml-2 transition ease-in-out duration-300 transform group-hover:translate-x-2">
                         <svg
@@ -101,7 +107,7 @@ function Index(props) {
                 </div>
               </aside>
             </div>
-            <div className="md:w-2/5">
+            <div className="lg:w-2/5">
               <div className="flex flex-col justify-center items-center min-h-full text-center">
                 <ButtonDonate label="Send Your Donation" />
                 <p className="text-base flex items-center justify-center">
@@ -125,17 +131,17 @@ function Index(props) {
         {/* Subscribe */}
         <section id="Subscribe" className="px-8 py-32 bg-white">
           <div className="max-w-screen-xl mx-auto md:flex">
-            <div className="md:w-3/5">
+            <div className="md:w-3/5 mb-8">
               <h3 className="mb-6 text-gray-800 text-4xl">Subscribe to our Newsletter</h3>
               <p>Receive periodic news updates on our progress, programming and more!</p>
               <Mailchimp actionUrl="https://hockessincoloredschool107.us1.list-manage.com/subscribe/post?u=178f276496ca736dd75a3afd5&amp;id=e314cd856b" />
             </div>
-            <div className="md:w-2/5">
+            <div className="md:w-2/5 md:ml-16">
               <figure className="text-center w-full">
                 <img
                   src="/assets/images/get-involved/get_involved-newsletter.jpg"
                   alt="Newsletter"
-                  className="inline-block max-w-xs rounded-lg shadow-lg"
+                  className="inline-block rounded-lg shadow-lg"
                 />
               </figure>
             </div>
@@ -145,7 +151,7 @@ function Index(props) {
         {/* Volunteer */}
         <section id="Volunteer" className="px-8 py-32 bg-gray-200">
           <div className="max-w-screen-xl mx-auto md:flex">
-            <div className="md:w-3/5">
+            <div className="md:w-3/5 mb-8">
               <h3 className="mb-6 text-gray-800 text-4xl">Volunteer</h3>
               <p>
                 Together, we can do more. Let's bring our abilities and passions together to
@@ -153,12 +159,12 @@ function Index(props) {
               </p>
               <VolunteerForm />
             </div>
-            <div className="md:w-2/5">
+            <div className="md:w-2/5 md:ml-16">
               <figure className="text-center w-full">
                 <img
                   src="/assets/images/get-involved/get_involved-volunteer.jpg"
                   alt="Volunteer"
-                  className="inline-block max-w-xs rounded-lg shadow-lg"
+                  className="inline-block rounded-lg shadow-lg"
                 />
               </figure>
             </div>

@@ -9,7 +9,7 @@ const PageHeader = ({ title, page }) => {
     >
       <div className="max-w-screen-lg mx-auto text-center text-white text-lg">
         {page ? <h6 className="text-lg text-gray-500 font-semibold mb-4">{page}</h6> : null}
-        {title ? <h1 className="text-5xl text-primary-900">{title}</h1> : null}
+        {title ? <h1 className="text-3xl md:text-5xl text-primary-900">{title}</h1> : null}
       </div>
     </section>
   );

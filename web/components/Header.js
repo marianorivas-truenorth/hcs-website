@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
@@ -7,27 +7,34 @@ import ButtonDonate from '@/components/ButtonDonate';
 
 const Header = (props) => {
   const router = useRouter();
+  const [navIsOpen, setNavIsOpen] = React.useState(false);
 
   const isHomepage = router.pathname === '/';
-  let className = 'z-50';
+  let className = 'fixed w-full z-50';
   if (isHomepage) {
-    className = `${className} absolute top-0 left-0 right-0 text-white bg-transparent`;
+    className = `${className} md:absolute top-0 left-0 right-0 text-white bg-black md:bg-transparent`;
   } else {
-    className = `${className} relative text-black bg-white shadow`;
+    className = `${className} md:relative text-black bg-white shadow`;
   }
+
+  const toggleMenu = () => {
+    setNavIsOpen((prevState) => !prevState);
+  };
 
   return (
     // <header className="text-white fixed top-0 left-0 right-0 z-50 p-4">
     <header className={`${className}`}>
-      <div className="max-w-screen-xl mx-auto py-4">
+      <div className="max-w-screen-xl mx-auto py-4 px-4 lg:px-0">
         <div className="flex w-full flex-col lg:flex-row justify-between items-center">
           <div className="flex justify-between w-full lg:w-1/4">
             <Link href="/">
-              <div className="whitespace-no-wrap cursor-pointer">Hockessin Colored School #107</div>
+              <div className="whitespace-no-wrap cursor-pointer">
+                <span className="hidden md:inline-block">Hockessin Colored School #107</span>
+                <span className="md:hidden">HCS #107</span>
+              </div>
             </Link>
             <div className="lg:hidden flex items-center">
-              <ButtonDonate className="button text-base" />
-              <div className="ml-8">
+              <button type="button" className="ml-8" onClick={toggleMenu}>
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -42,27 +49,29 @@ const Header = (props) => {
                     d="M4 6h16M4 12h16M4 18h16"
                   ></path>
                 </svg>
-              </div>
+              </button>
             </div>
           </div>
 
-          <nav className="flex flex-col lg:flex-row text-lg items-center">
-            <div className="lg:mx-4">
+          <nav
+            className={`flex-col md:flex-row text-lg items-center ${navIsOpen ? 'flex' : 'hidden'}`}
+          >
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/">
                 <a>Home</a>
               </HeaderLink>
             </div>
-            <div className="lg:mx-4">
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/our-history">
                 <a>Our History</a>
               </HeaderLink>
             </div>
-            <div className="lg:mx-4">
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/get-involved">
                 <a>Get Involved</a>
               </HeaderLink>
             </div>
-            <div className="lg:mx-4">
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <Menu>
                 {({ open }) => (
                   <>
@@ -82,7 +91,7 @@ const Header = (props) => {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Menu.Items className="absolute left-0 right-0 mt-5 w-full origin-top-center outline-none">
+                      <Menu.Items className="absolute left-0 right-0 z-50 lg:mt-5 w-full origin-top-center outline-none">
                         <AboutMenu />
                       </Menu.Items>
                     </Transition>
@@ -90,12 +99,12 @@ const Header = (props) => {
                 )}
               </Menu>
             </div>
-            <div className="lg:mx-4">
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/events-and-media">
                 <a>Events &amp; Media</a>
               </HeaderLink>
             </div>
-            <div className="lg:mx-4">
+            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/contact">
                 <a>Contact</a>
               </HeaderLink>
@@ -111,19 +120,19 @@ const Header = (props) => {
 };
 
 const AboutMenu = () => (
-  <nav className="min-w-max">
-    <div className="max-w-screen-xl mx-auto pt-8 pb-10 bg-white border-t-4 border-gray-300 shadow-lg rounded-md">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 text-gray-800 px-10">
-        <div>
+  <nav className="md:min-w-max">
+    <div className="max-w-screen-xl mx-auto py-4 lg:pt-8 lg:pb-10 bg-white border-t-4 border-gray-300 lg:shadow-lg lg:rounded-md">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-16 gap-y-4 text-gray-800 px-4 lg:px-10">
+        <div className="hidden lg:block">
           <h4 className="w-48 text-gray-900">Learn more about HCS #107</h4>
         </div>
         <div>
           <Link href="/about/vision">
-            <div className="group cursor-pointer text-base">
+            <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 Vision for the Future
               </div>
-              <div className="leading-tight">
+              <div className="hidden lg:block leading-tight">
                 Learn about our plans to restore the school and initiate a center for community
                 programming.
               </div>
@@ -132,11 +141,11 @@ const AboutMenu = () => (
         </div>
         <div>
           <Link href="/about/board-members">
-            <div className="group cursor-pointer text-base">
+            <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 Our Board Members
               </div>
-              <div className="leading-tight">
+              <div className="hidden lg:block leading-tight">
                 Meet the members of our community that make our efforts possible.
               </div>
             </div>
@@ -144,11 +153,11 @@ const AboutMenu = () => (
         </div>
         <div>
           <Link href="/about/press">
-            <div className="group cursor-pointer text-base">
+            <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 In the Press
               </div>
-              <div className="leading-tight">
+              <div className="hidden lg:block leading-tight">
                 Learn even more about the HCS #107 story, as told by others!
               </div>
             </div>

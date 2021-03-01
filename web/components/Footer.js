@@ -8,7 +8,7 @@ function Footer(props) {
   return (
     <footer className="bg-gray-300 px-8 py-16 text-gray-700 text-base">
       <div className="max-w-screen-xl mx-auto">
-        <div className="grid gris-cols-1 md:grid-cols-3 gap-20">
+        <div className="grid gris-cols-1 md:grid-cols-3 gap-x-20 gap-y-8">
           <aside>
             <h4 className="mb-4 text-2xl">Contact us</h4>
             <p>
@@ -38,7 +38,7 @@ function Footer(props) {
 
           <aside>
             <h4 className="mb-4 text-2xl">Follow us</h4>
-            <nav>
+            <nav className="mb-4">
               {facebookUrl ? (
                 <a href={facebookUrl} rel="noopener nofollow" className="inline-block mr-4">
                   <img src="/assets/images/icon-facebook.svg" alt="facebook" />

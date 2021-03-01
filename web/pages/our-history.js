@@ -29,19 +29,19 @@ function Index(props) {
       </section>
 
       {/* Body */}
-      <section className="p-8">
+      <section className="px-4 md:p-8">
         <div className="max-w-screen-xl mx-auto">
           {/* 1920 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1920</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
-                <div className="text-3xl leading-relaxed">
+          <Timeline>
+            <TimelineTitle>1920</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
+                <TimelineBodyText>
                   HCS #107 is built as a one-room schoolhouse to serve black children who were not
                   allowed to attend school with white children.
-                </div>
-                <div className="flex mt-12">
-                  <aside className="bg-primary-200 p-4 text-gray-600 text-base rounded-lg w-1/2">
+                </TimelineBodyText>
+                <div className="lg:flex mt-12">
+                  <aside className="bg-primary-200 p-4 text-gray-600 text-base rounded-lg lg:w-1/2">
                     <p>
                       <strong>“Our books and things..we would get the cast-offs.</strong> Some of
                       them didn’t have pages, some of them didn’t have backs, they were all written
@@ -50,7 +50,7 @@ function Index(props) {
                     </p>
                     <cite>Lois Johnson, Former student</cite>
                   </aside>
-                  <figure className="w-1/2 ml-8">
+                  <figure className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8">
                     <img
                       src="/assets/images/our-history/history-1920-school.jpg"
                       alt="Original schoolhouse"
@@ -58,8 +58,8 @@ function Index(props) {
                     />
                   </figure>
                 </div>
-              </div>
-              <div className="ml-12 w-1/2">
+              </TimelineBodyLeft>
+              <TimelineBodyRight>
                 <figure className="w-full mb-8">
                   <img
                     src="/assets/images/our-history/history-1920-students.jpg"
@@ -75,35 +75,35 @@ function Index(props) {
                   </p>
                   <cite>Sonny Knott, Former student (second from left)</cite>
                 </aside>
-              </div>
-            </div>
-          </article>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 1950 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1950</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
+          <Timeline>
+            <TimelineTitle>1950</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
                 <img src="/assets/images/our-history/shirley-bulah.jpg" alt="Shirley Bulah" />
-              </div>
-              <div className="ml-12 w-1/2">
-                <div className="text-3xl text-right leading-relaxed">
+              </TimelineBodyLeft>
+              <TimelineBodyRight>
+                <TimelineBodyText>
                   Parents Fred and Sarah Bulah write Delaware Governor Carvel asking the state to
                   provide their daughter Shirley with transportation to school. They are rejected.
-                </div>
-              </div>
-            </div>
-          </article>
+                </TimelineBodyText>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 1951 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1951</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
-                <div className="text-3xl leading-relaxed">
+          <Timeline>
+            <TimelineTitle>1951</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
+                <TimelineBodyText>
                   Mrs. Bulah seeks the advice of the lawyer, Louis Redding. Redding files the
                   Delaware court case, Bulah v. Gebhart on behalf of Shirley Bulah.
-                </div>
+                </TimelineBodyText>
                 <aside className="bg-secondary-200 p-4 text-gray-600 text-base rounded-lg mt-8">
                   <p>
                     <strong>
@@ -115,32 +115,32 @@ function Index(props) {
                   </p>
                   <cite>Sarah Bulah, Shirley’s Mother</cite>
                 </aside>
-              </div>
-              <div className="ml-12 w-1/2">
+              </TimelineBodyLeft>
+              <TimelineBodyRight>
                 <img
                   src="/assets/images/our-history/history-1951-redding.jpg"
                   alt="Louis Redding"
                 />
-              </div>
-            </div>
-          </article>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 1952 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1952</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
+          <Timeline>
+            <TimelineTitle>1952</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
                 <h3 className="mb-4 text-primary-600 text-2xl">April</h3>
-                <div className="text-3xl leading-relaxed">
+                <TimelineBodyText>
                   Delaware Chancellor Collins J. Seitz issues the declaration that the disparity
                   between white and African-American students is in violation of the U.S.
                   Constitution.
-                </div>
+                </TimelineBodyText>
                 <h3 className="mt-8 mb-4 text-primary-600 text-2xl">September</h3>
-                <div className="text-3xl leading-relaxed">
+                <TimelineBodyText>
                   “Colored” students are admitted into Hockessin School #29, located 1 mile away
                   from HCS #107.
-                </div>
+                </TimelineBodyText>
                 <figure className="text-base text-gray-700 font-serif mt-8">
                   <img
                     src="/assets/images/our-history/history-1952-team.jpg"
@@ -149,9 +149,9 @@ function Index(props) {
                   />
                   <figcaption>Brown v. Board legal team: Names</figcaption>
                 </figure>
-              </div>
+              </TimelineBodyLeft>
 
-              <div className="ml-12 w-1/2 text-right">
+              <TimelineBodyRight className="text-right">
                 <figure className="text-base text-gray-700 font-serif">
                   <img
                     src="/assets/images/our-history/history-1952-seitz-shirley.jpg"
@@ -162,60 +162,60 @@ function Index(props) {
                   </figcaption>
                 </figure>
                 <h3 className="mt-16 mb-4 text-primary-600 text-2xl">October</h3>
-                <div className="text-3xl leading-relaxed">
+                <TimelineBodyText>
                   Bulah v. Gebhart was the only case in which the lower court ruled in favor of the
                   plaintiff, effectively causing Delaware to set the precedent for the Supreme
                   Court's final ruling in Brown v. Board of Education.
-                </div>
-              </div>
-            </div>
-          </article>
+                </TimelineBodyText>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 1954 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1954</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
-                <div className="text-3xl leading-relaxed">
+          <Timeline>
+            <TimelineTitle>1954</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
+                <TimelineBodyText>
                   US Supreme Court overturns Plessy v. Ferguson, declaring school segregation
                   unconstitutional.
-                </div>
-              </div>
+                </TimelineBodyText>
+              </TimelineBodyLeft>
 
-              <div className="ml-12 w-1/2">
+              <TimelineBodyRight>
                 <img
                   src="/assets/images/our-history/history-1954-supremecourt.jpg"
                   alt="Supreme Court Brown"
                   className="w-full rounded-lg shadow-lg"
                 />
-              </div>
-            </div>
-          </article>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 1959 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">1959</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
+          <Timeline>
+            <TimelineTitle>1959</TimelineTitle>
+            <TimelineBody>
               <div className="mx-12">
-                <div className="text-3xl leading-relaxed">
+                <TimelineBodyText>
                   Hockessin Colored School #107 officially closes.
-                </div>
+                </TimelineBodyText>
               </div>
-            </div>
-          </article>
+            </TimelineBody>
+          </Timeline>
 
           {/* 2012 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">2012</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
-                <div className="text-3xl leading-relaxed">
+          <Timeline>
+            <TimelineTitle>2012</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
+                <TimelineBodyText>
                   The Friends of Hockessin Colored School #107, Inc. (“FOHCS”) save the property
                   from a sheriff’s sale.
-                </div>
-              </div>
+                </TimelineBodyText>
+              </TimelineBodyLeft>
 
-              <div className="ml-12 w-1/2">
+              <TimelineBodyRight>
                 <aside className="bg-accent-200 p-4 text-gray-600 text-base rounded-lg mt-8">
                   <p>
                     “We could no more let HCS #107 be torn down or lost to commercial development,
@@ -229,34 +229,34 @@ function Index(props) {
                   </p>
                   <cite>Judge Leonard Williams, Founding Chairman of The FOHCS</cite>
                 </aside>
-              </div>
-            </div>
-          </article>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
 
           {/* 2020 */}
-          <article className="my-16">
-            <h3 className="mb-4 text-primary-600 text-4xl">2020</h3>
-            <div className="border-l border-gray-500 ml-10 py-4 flex">
-              <div className="mx-12 w-1/2">
-                <figure>
+          <Timeline>
+            <TimelineTitle>2020</TimelineTitle>
+            <TimelineBody>
+              <TimelineBodyLeft>
+                <figure className="mb-4">
                   <img
                     src="/assets/images/our-history/history-2020-school.jpg"
                     alt="HCS Today"
                     className="rounded-lg shadow-lg"
                   />
                 </figure>
-                <div className="mt-8 text-3xl leading-relaxed">
+                <TimelineBodyText>
                   The children’s book “Ride, Shirley, Ride” by Dr. L Richelle is published, sharing
                   Shirley’s story with the world.
-                </div>
-              </div>
+                </TimelineBodyText>
+              </TimelineBodyLeft>
 
-              <div className="ml-12 w-1/2 text-right">
+              <TimelineBodyRight className="text-right">
                 <h3 className="mt-16 mb-4 text-primary-600 text-2xl">August</h3>
-                <div className="text-3xl leading-relaxed">
+                <TimelineBodyText>
                   Hockessin Colored School #107 enters into partnership with New Castle County (NCC)
                   to become the 250th park in the NCC system.
-                </div>
+                </TimelineBodyText>
                 <figure className="text-left mt-8">
                   <img
                     src="/assets/images/our-history/history-2020-book.jpg"
@@ -264,9 +264,9 @@ function Index(props) {
                     className="w-56 rounded-lg shadow-lg"
                   />
                 </figure>
-              </div>
-            </div>
-          </article>
+              </TimelineBodyRight>
+            </TimelineBody>
+          </Timeline>
         </div>
       </section>
 
@@ -279,5 +279,31 @@ function Index(props) {
     </Layout>
   );
 }
+
+const Timeline = ({ children }) => (
+  <article className="my-8 md:my-16 border-l border-gray-400 md:border-transparent">
+    {children}
+  </article>
+);
+
+const TimelineTitle = ({ children }) => (
+  <h3 className="ml-4 md:ml-0 mb-4 text-primary-600 text-2xl md:text-4xl">{children}</h3>
+);
+
+const TimelineBody = ({ children }) => (
+  <div className="ml-2 md:ml-10 py-4 md:flex md:border-l md:border-gray-500 ">{children}</div>
+);
+
+const TimelineBodyLeft = ({ children, className }) => (
+  <div className={`mx-4 md:mx-12 md:w-1/2 ${className}`}>{children}</div>
+);
+
+const TimelineBodyRight = ({ children, className }) => (
+  <div className={`mx-4 md:ml-12 md:w-1/2 ${className}`}>{children}</div>
+);
+
+const TimelineBodyText = ({ children, className }) => (
+  <div className={`text-2xl lg:text-3xl md:leading-relaxed ${className}`}>{children}</div>
+);
 
 export default Index;

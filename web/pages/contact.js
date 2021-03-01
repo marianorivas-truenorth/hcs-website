@@ -18,7 +18,7 @@ function Index(props) {
 
       <PageHeader page="Contact" title="We would love to hear from you" />
 
-      <section className="max-w-screen-xl mx-auto py-16">
+      <section className="max-w-screen-xl mx-auto p-8 lg:py-16 lg:px-0">
         <div className="md:flex">
           <article className="md:w-3/5">
             <ContactForm />

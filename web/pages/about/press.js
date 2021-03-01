@@ -20,9 +20,9 @@ function Index(props) {
 
       <PageHeader page="About Us" title="HCS in the Press" />
 
-      <section className="bg-gray-200">
+      <section className="bg-gray-200 px-8 lg:px-0">
         <div className="max-w-screen-xl mx-auto py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
             {posts.map((post) => post.link && <CardPress data={post} key={post._id} />)}
           </div>
         </div>

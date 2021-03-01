@@ -34,9 +34,9 @@ function Index(props) {
             </h2>
           </div>
 
-          <article className="mt-20 flex items-center">
-            <div className="w-1/2">
-              <figure className="w-full">
+          <article className="mt-20 flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2">
+              <figure className="w-full mb-8 md:mb-0">
                 <img
                   src="/assets/images/about/vision-education.jpg"
                   alt="Educational Enrichment"
@@ -44,8 +44,8 @@ function Index(props) {
                 />
               </figure>
             </div>
-            <div className="w-1/2">
-              <div className="ml-20">
+            <div className="md:w-1/2">
+              <div className="md:ml-20">
                 <div className="text-primary-600">Educational Enrichment</div>
                 <h4 className="my-4">
                   Living history of HCS #107 for educational enrichment of K-12 students.
@@ -62,8 +62,17 @@ function Index(props) {
             </div>
           </article>
 
-          <article className="mt-20 flex items-center">
-            <div className="w-1/2">
+          <article className="mt-20 flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2">
+              <figure className="w-full mb-8 md:mb-0">
+                <img
+                  src="/assets/images/about/vision-diversity.jpg"
+                  alt="Diversity Training"
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </figure>
+            </div>
+            <div className="md:w-1/2 md:order-first">
               <div className="mr-20">
                 <div className="text-primary-600">Diversity Training</div>
                 <h4 className="my-4">
@@ -95,20 +104,11 @@ function Index(props) {
                 />
               </div>
             </div>
-            <div className="w-1/2">
-              <figure className="w-full">
-                <img
-                  src="/assets/images/about/vision-diversity.jpg"
-                  alt="Diversity Training"
-                  className="w-full rounded-lg shadow-lg"
-                />
-              </figure>
-            </div>
           </article>
 
-          <article className="mt-20 flex items-center">
-            <div className="w-1/2">
-              <figure className="w-full">
+          <article className="mt-20 flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2">
+              <figure className="w-full mb-8 md:mb-0">
                 <img
                   src="/assets/images/about/vision-infrastructure.jpg"
                   alt="Social Infrastructure"
@@ -116,8 +116,8 @@ function Index(props) {
                 />
               </figure>
             </div>
-            <div className="w-1/2">
-              <div className="ml-20">
+            <div className="md:w-1/2">
+              <div className="md:ml-20">
                 <div className="text-primary-600">Developing Social Infrastructure Strategies</div>
                 <h4 className="my-4">
                   A space for innovation and collaboration in service to our community.
