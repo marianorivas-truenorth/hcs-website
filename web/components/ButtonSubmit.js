@@ -10,7 +10,7 @@ const ButtonSubmit = ({
   ...otherProps
 }) => {
   return (
-    <button type="submit" className="button w-full lg:w-auto">
+    <button type="submit" className="button w-full lg:w-auto focus:outline-none">
       {isSubmitting ? (
         <div>
           <svg

@@ -10,7 +10,7 @@ const Header = (props) => {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
 
   const isHomepage = router.pathname === '/';
-  let className = 'fixed w-full z-50';
+  let className = 'w-full z-50';
   if (isHomepage) {
     className = `${className} md:absolute top-0 left-0 right-0 text-white bg-black md:bg-transparent`;
   } else {
@@ -24,7 +24,7 @@ const Header = (props) => {
   return (
     // <header className="text-white fixed top-0 left-0 right-0 z-50 p-4">
     <header className={`${className}`}>
-      <div className="max-w-screen-xl mx-auto py-4 px-4 lg:px-0">
+      <div className="max-w-screen-xl mx-auto py-4 px-4 xl:px-0">
         <div className="flex w-full flex-col lg:flex-row justify-between items-center">
           <div className="flex justify-between w-full lg:w-1/4">
             <Link href="/">
@@ -54,7 +54,9 @@ const Header = (props) => {
           </div>
 
           <nav
-            className={`flex-col md:flex-row text-lg items-center ${navIsOpen ? 'flex' : 'hidden'}`}
+            className={`flex-col md:flex md:flex-row text-lg items-center ${
+              navIsOpen ? 'flex' : 'hidden'
+            }`}
           >
             <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
               <HeaderLink href="/">
