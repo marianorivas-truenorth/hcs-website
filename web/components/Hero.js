@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useEmblaCarousel } from 'embla-carousel/react';
 
-const Hero = ({ slides = [] }) => {
+const Hero = ({ slides }) => {
   const [viewportRef, embla] = useEmblaCarousel({ loop: true });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -17,13 +17,13 @@ const Hero = ({ slides = [] }) => {
 
   useEffect(() => {
     if (!embla) return;
-    embla.on('select', onSelect);
     onSelect();
+    embla.on('select', onSelect);
   }, [embla, onSelect]);
 
   return (
     <section className="bg-black relative">
-      <div className="overflow-hidden" ref={viewportRef}>
+      <div className="overflow-hidden w-full transform translate-x-0" ref={viewportRef}>
         <div className="flex">
           <div className="relative min-w-full">
             <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
@@ -43,7 +43,7 @@ const Hero = ({ slides = [] }) => {
           </div>
 
           <div className="relative min-w-full">
-            <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
+            <CarouselItem background="/assets/images/homepage/hcs-hero-02.jpg">
               <h1 className="text-white leading-snug">
                 <small className="text-xl block mb-2">
                   Transforming the historic Hockessin school that ended segregation into a
@@ -60,7 +60,7 @@ const Hero = ({ slides = [] }) => {
           </div>
 
           <div className="relative min-w-full">
-            <CarouselItem background="/assets/images/homepage/hcs-hero-01.jpg">
+            <CarouselItem background="/assets/images/homepage/hcs-hero-03.jpg">
               <h1 className="text-white leading-snug">
                 <small className="text-xl block mb-2">
                   Transforming the historic Hockessin school that ended segregation into a
