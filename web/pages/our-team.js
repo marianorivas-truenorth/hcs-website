@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import groq from 'groq';
-import client from '../../client';
+import client from '../client';
 import imageUrlBuilder from '@sanity/image-url';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
@@ -17,7 +17,7 @@ function Index(props) {
         <title>Meet Our Board Members | {config.title}</title>
       </Head>
 
-      <PageHeader page="About Us" title="Meet Our Board Members" />
+      <PageHeader page="Our Team" title="Meet Our Board Members" />
 
       {/* board */}
       <section className="p-8 md:py-20">
@@ -51,15 +51,11 @@ function Index(props) {
 const Member = ({ mainImage, name, role }) => {
   return (
     <article className="text-center">
-      <figure className="mx-4 mb-2">
+      <figure className="mx-auto mb-2 flex items-center justify-center overflow-hidden rounded-full border-4 border-gray-300 bg-gray-400 w-24 h-24 md:w-32 md:h-32 xl:w-48 xl:h-48">
         {mainImage ? (
-          <img
-            src={urlFor(mainImage).width(320).url()}
-            className="w-24 h-24 lg:w-48 lg:h-48 mx-auto rounded-full border-4 border-gray-300"
-            alt={name}
-          />
+          <img src={urlFor(mainImage).width(320).url()} className="w-full" alt={name} />
         ) : (
-          <div className="w-24 h-24 lg:w-48 lg:h-48 mx-auto rounded-full border-4 border-gray-300 bg-gray-400"></div>
+          <div className="w-full"></div>
         )}
       </figure>
       <div className="mt-2">

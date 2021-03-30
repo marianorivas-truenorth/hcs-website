@@ -8,10 +8,11 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import CardEvent from '@/components/CardEvent';
 import CardPost from '@/components/CardPost';
+import CardPress from '@/components/CardPress';
 import Banner from '@/components/Banner';
 
 function Index(props) {
-  const { config, posts = [], events = [] } = props;
+  const { config, posts = [], events = [], press = [] } = props;
 
   return (
     <Layout config={config}>
@@ -26,12 +27,15 @@ function Index(props) {
         <section className="bg-primary-500 shadow-xl sticky top-14 md:top-0 z-40">
           <div className="max-w-screen-lg mx-auto text-center text-white py-4">
             <nav className="stickynav flex items-center justify-center">
-              <Scrollspy items={['Events', 'Media']} currentClassName="active">
+              <Scrollspy items={['Events', 'Media', 'Press']} currentClassName="active">
                 <a href="#Events" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
                   Events
                 </a>
                 <a href="#Media" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
                   Media
+                </a>
+                <a href="#Press" className="button shadow-none mx-1 text-base md:mx-2 md:text-xl">
+                  Press
                 </a>
               </Scrollspy>
             </nav>
@@ -83,6 +87,16 @@ function Index(props) {
             </div>
           </div>
         </section>
+
+        {/* Press */}
+        <section id="Press" className="px-8 py-32 bg-gray-200">
+          <div className="max-w-screen-xl mx-auto">
+            <h4 className="text-3xl text-center">Press</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mt-16">
+              {press.map((post) => post.link && <CardPress data={post} key={post._id} />)}
+            </div>
+          </div>
+        </section>
       </article>
 
       <Banner
@@ -101,6 +115,9 @@ Index.getInitialProps = async () => ({
   `),
   posts: await client.fetch(groq`
     *[_type == "post"]|order(publishedAt desc)
+  `),
+  press: await client.fetch(groq`
+    *[_type == "press"]|order(publishedAt desc)
   `),
 });
 

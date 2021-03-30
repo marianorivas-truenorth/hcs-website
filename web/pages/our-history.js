@@ -196,11 +196,33 @@ function Index(props) {
           <Timeline>
             <TimelineTitle>1959</TimelineTitle>
             <TimelineBody>
-              <div className="mx-12">
-                <TimelineBodyText>
-                  Hockessin Colored School #107 officially closes.
-                </TimelineBodyText>
-              </div>
+              <TimelineBodyLeft>
+                <div className="mx-12">
+                  <TimelineBodyText>
+                    Hockessin Colored School #107 officially closes.
+                  </TimelineBodyText>
+
+                  <figure className="text-base text-gray-700 font-serif">
+                    <img
+                      src="/assets/images/our-history/history-1959-former-students.jpg"
+                      className="w-full rounded-lg shadow-lg mt-8 mb-4"
+                      alt="Former students"
+                    />
+                    <figcaption>Former students gather for an agreement signing event</figcaption>
+                  </figure>
+                </div>
+              </TimelineBodyLeft>
+
+              <TimelineBodyRight>
+                <figure className="text-base text-gray-700 font-serif text-right">
+                  <img
+                    src="/assets/images/our-history/history-1959-sonny.jpg"
+                    alt="Sonny"
+                    className="w-full rounded-lg shadow-lg mb-4"
+                  />
+                  <figcaption>Sonny Knott attended HCS #107 in the late 1930s</figcaption>
+                </figure>
+              </TimelineBodyRight>
             </TimelineBody>
           </Timeline>
 
@@ -216,7 +238,7 @@ function Index(props) {
               </TimelineBodyLeft>
 
               <TimelineBodyRight>
-                <aside className="bg-accent-200 p-4 text-gray-600 text-base rounded-lg mt-8">
+                <aside className="bg-accent-200 p-4 text-gray-600 text-base rounded-lg mt-8 md:mt-0">
                   <p>
                     “We could no more let HCS #107 be torn down or lost to commercial development,
                     than we could allow another promising student of color to drop out of high
@@ -240,7 +262,7 @@ function Index(props) {
               <TimelineBodyLeft>
                 <figure className="mb-4">
                   <img
-                    src="/assets/images/our-history/history-2020-school.jpg"
+                    src="/assets/images/our-history/history-2020-august.jpg"
                     alt="HCS Today"
                     className="rounded-lg shadow-lg"
                   />
@@ -252,7 +274,7 @@ function Index(props) {
               </TimelineBodyLeft>
 
               <TimelineBodyRight className="text-right">
-                <h3 className="mt-16 mb-4 text-primary-600 text-2xl">August</h3>
+                <h3 className="mt-8 md:mt-0 mb-4 text-primary-600 text-2xl">August</h3>
                 <TimelineBodyText>
                   Hockessin Colored School #107 enters into partnership with New Castle County (NCC)
                   to become the 250th park in the NCC system.
@@ -291,7 +313,9 @@ const TimelineTitle = ({ children }) => (
 );
 
 const TimelineBody = ({ children }) => (
-  <div className="ml-2 md:ml-10 py-4 md:flex md:border-l md:border-gray-500 ">{children}</div>
+  <div className="ml-2 md:ml-10 py-4 md:flex md:border-l md:border-gray-500 leading-relaxed ">
+    {children}
+  </div>
 );
 
 const TimelineBodyLeft = ({ children, className }) => (

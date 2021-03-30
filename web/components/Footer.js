@@ -40,17 +40,32 @@ function Footer(props) {
             <h4 className="mb-4 text-2xl">Follow us</h4>
             <nav className="mb-4">
               {facebookUrl ? (
-                <a href={facebookUrl} rel="noopener nofollow" className="inline-block mr-4">
+                <a
+                  href={facebookUrl}
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="inline-block mr-4"
+                >
                   <img src="/assets/images/icon-facebook.svg" alt="facebook" />
                 </a>
               ) : null}
               {linkedinUrl ? (
-                <a href={linkedinUrl} rel="noopener nofollow" className="inline-block mr-4">
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="inline-block mr-4"
+                >
                   <img src="/assets/images/icon-linkedin.svg" alt="linkedin" />
                 </a>
               ) : null}
               {twitterUrl ? (
-                <a href={twitterUrl} rel="noopener nofollow" className="inline-block mr-4">
+                <a
+                  href={twitterUrl}
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="inline-block mr-4"
+                >
                   <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
                 </a>
               ) : null}
@@ -67,7 +82,17 @@ function Footer(props) {
         </div>
 
         <div className="text-gray-500 text-sm mt-8">
-          <p>Copyright 2021 Hockessin Colored School #107</p>
+          <p>
+            Copyright 2021 Hockessin Colored School #107 | Designed & Built by{' '}
+            <a
+              href="https://truenorth.co"
+              target="blank"
+              rel="noopener nofollow"
+              className="hover:underline"
+            >
+              TrueNorth
+            </a>
+          </p>
         </div>
       </div>
     </footer>

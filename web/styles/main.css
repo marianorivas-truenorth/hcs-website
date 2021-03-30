@@ -24,7 +24,7 @@ h4 {
 }
 
 a {
-  @apply text-gray-800;
+  @apply text-gray-800 focus:outline-none;
 }
 
 .button {

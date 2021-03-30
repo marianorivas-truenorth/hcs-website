@@ -123,7 +123,7 @@ const Post = (props) => {
       <Banner
         title="Questions?"
         action="Get in contact with HCS #107 Staff"
-        link="/contact"
+        link="/get-involved"
         icon="/assets/images/illustration-humans.svg"
       />
     </Layout>

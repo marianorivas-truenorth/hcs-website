@@ -10,11 +10,11 @@ const Header = (props) => {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
 
   const isHomepage = router.pathname === '/';
-  let className = 'w-full z-50';
+  let className = 'fixed w-full z-50';
   if (isHomepage) {
     className = `${className} md:absolute top-0 left-0 right-0 text-white bg-black md:bg-transparent`;
   } else {
-    className = `${className} md:relative text-black bg-white shadow`;
+    className = `${className} md:relative text-primary-900 bg-white shadow`;
   }
 
   const toggleMenu = () => {
@@ -24,13 +24,16 @@ const Header = (props) => {
   return (
     // <header className="text-white fixed top-0 left-0 right-0 z-50 p-4">
     <header className={`${className}`}>
-      <div className="max-w-screen-xl mx-auto py-4 px-4 xl:px-0">
+      <div className="max-w-screen-xl mx-auto py-4 md:px-4 xl:px-0">
         <div className="flex w-full flex-col lg:flex-row justify-between items-center">
-          <div className="flex justify-between w-full lg:w-1/4">
+          <div className="flex justify-between w-full lg:w-1/4 px-4 md:px-0">
             <Link href="/">
               <div className="whitespace-no-wrap cursor-pointer">
                 <span className="hidden md:inline-block">Hockessin Colored School #107</span>
-                <span className="md:hidden">HCS #107</span>
+                <span className="md:hidden text-xs font-bold leading-3 block">
+                  Hockessin Colored
+                  <br /> School #107
+                </span>
               </div>
             </Link>
             <div className="lg:hidden flex items-center">
@@ -54,26 +57,41 @@ const Header = (props) => {
           </div>
 
           <nav
-            className={`flex-col md:flex md:flex-row text-lg items-center ${
-              navIsOpen ? 'flex' : 'hidden'
+            className={`text-lg lg:flex flex-col md:flex-row md:items-center md:w-auto pt-4 md:pt-0 ${
+              navIsOpen ? 'flex w-full' : 'hidden'
             }`}
           >
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
               <HeaderLink href="/">
                 <a>Home</a>
               </HeaderLink>
             </div>
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
               <HeaderLink href="/our-history">
                 <a>Our History</a>
               </HeaderLink>
             </div>
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
+              <HeaderLink href="/our-vision">
+                <a>Our Vision</a>
+              </HeaderLink>
+            </div>
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
+              <HeaderLink href="/our-team">
+                <a>Our Team</a>
+              </HeaderLink>
+            </div>
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
               <HeaderLink href="/get-involved">
                 <a>Get Involved</a>
               </HeaderLink>
             </div>
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
+            <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
+              <HeaderLink href="/events-and-media">
+                <a>Events &amp; Media</a>
+              </HeaderLink>
+            </div>
+            {/* <div className="p-3 md:px-0 md:mx-2 xl:mx-3 border-b border-gray-400 md:border-transparent">
               <Menu>
                 {({ open }) => (
                   <>
@@ -100,18 +118,8 @@ const Header = (props) => {
                   </>
                 )}
               </Menu>
-            </div>
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
-              <HeaderLink href="/events-and-media">
-                <a>Events &amp; Media</a>
-              </HeaderLink>
-            </div>
-            <div className="my-3 md:mx-3 md:mt-6 lg:my-0 lg:mx-4">
-              <HeaderLink href="/contact">
-                <a>Contact</a>
-              </HeaderLink>
-            </div>
-            <div className="hidden ml-4 lg:inline-block">
+            </div> */}
+            <div className="my-3 md:my-0 ml-4 lg:inline-block">
               <ButtonDonate className={`button ${isHomepage ? 'button-white' : 'button-accent'}`} />
             </div>
           </nav>

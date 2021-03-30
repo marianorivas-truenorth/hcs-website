@@ -110,6 +110,7 @@ function Index(props) {
             <div className="lg:w-2/5">
               <div className="flex flex-col justify-center items-center min-h-full text-center">
                 <ButtonDonate label="Send Your Donation" />
+
                 <p className="text-base flex items-center justify-center">
                   <span>Powered by</span>{' '}
                   <img src="/assets/images/logo-paypal.png" alt="PayPal" className="ml-2" />

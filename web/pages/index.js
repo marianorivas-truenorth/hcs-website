@@ -117,7 +117,7 @@ function Index(props) {
           </div>
 
           <div className="text-center py-16 md:pb-0">
-            <a href="/out-history" className="button">
+            <a href="/our-history" className="button">
               Explore the Full Timeline
             </a>
           </div>
@@ -175,10 +175,10 @@ function Index(props) {
             <figure className="text-center leading-snug">
               <img
                 src="/assets/images/icon-history.svg"
-                alt="Living History for Students"
+                alt="Living History for Student"
                 className="inline-block mb-4"
               />
-              <figcaption>Living History for Students Learning</figcaption>
+              <figcaption>Living History for Student Learning</figcaption>
             </figure>
             <figure className="text-center leading-snug">
               <img
@@ -235,10 +235,15 @@ function Index(props) {
                   Featured by NPR via Delmarva Public Media
                 </div>
               </div>
-              <div className="text-2xl font-bold leading-tight text-primary-600 mb-6">
+              <a
+                className="text-2xl font-bold leading-tight text-primary-600 mb-6 inline-block hover:underline"
+                href="https://www.delmarvapublicradio.net/post/saving-delaware-school-brought-down-segregation-part-1"
+                target="_blank"
+                rel="noopener nofollow"
+              >
                 Saving Delaware School That Brought Down Segregation
-              </div>
-              <audio controls className="focus:outline-none mb-4">
+              </a>
+              <audio controls className="focus:outline-none mb-8 md:mb-4">
                 <source src="/assets/audio/new-saving-delaware-school.mp3" type="audio/mpeg" />
                 Your browser does not support the audio element.
               </audio>
@@ -292,10 +297,15 @@ function Index(props) {
                   Featured by NPR via Delmarva Public Media
                 </div>
               </div>
-              <div className="text-2xl font-bold leading-tight text-primary-600 mb-6">
+              <a
+                className="text-2xl font-bold leading-tight text-primary-600 mb-6 inline-block hover:underline"
+                href="https://www.delmarvapublicradio.net/post/impact-end-segregation-hockessin-african-american-community-part-2"
+                target="_blank"
+                rel="noopener nofollow"
+              >
                 The Impact of the End of Segregation on Hockessin African American Community
-              </div>
-              <audio controls className="focus:outline-none mb-4">
+              </a>
+              <audio controls className="focus:outline-none mb-8 md:mb-4">
                 <source
                   src="/assets/audio/the-impact-of-the-end-of-segregation.mp3"
                   type="audio/mpeg"
