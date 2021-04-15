@@ -9,7 +9,7 @@ const FormTextarea = ({ name, label, placeholder, register, errors }) => (
       <textarea
         name={name}
         placeholder={placeholder || label}
-        className={`placeholder-gray-400 block w-full rounded-md border bg-white px-2 py-1 text-gray-700 outline-none focus:outline-none ${
+        className={`text-base placeholder-gray-400 block w-full rounded-md border bg-white px-2 py-1 text-gray-700 outline-none focus:outline-none ${
           errors ? 'border-red-400' : 'border-gray-400 focus:border-gray-500'
         }`}
         ref={register}

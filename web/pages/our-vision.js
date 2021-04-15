@@ -37,7 +37,9 @@ function Index(props) {
           <article className="mt-20 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2">
               <div className="md:ml-20">
-                <div className="text-primary-600">Educational Enrichment</div>
+                <div className="text-primary-600 text-2xl font-semibold">
+                  Educational Enrichment
+                </div>
                 <h4 className="my-4">
                   Living history of HCS #107 for educational enrichment of K-12 students.
                 </h4>
@@ -65,7 +67,7 @@ function Index(props) {
           <article className="mt-20 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2">
               <div className="mr-20">
-                <div className="text-primary-600">Diversity Training</div>
+                <div className="text-primary-600 text-2xl font-semibold">Diversity Training</div>
                 <h4 className="my-4">
                   DEI workshops focused on promoting inclusion & social equity awareness.
                 </h4>
@@ -109,7 +111,9 @@ function Index(props) {
           <article className="mt-20 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2">
               <div className="md:ml-20">
-                <div className="text-primary-600">Developing Social Infrastructure Strategies</div>
+                <div className="text-primary-600 text-2xl font-semibold">
+                  Developing Social Infrastructure Strategies
+                </div>
                 <h4 className="my-4">
                   A space for innovation and collaboration in service to our community.
                 </h4>

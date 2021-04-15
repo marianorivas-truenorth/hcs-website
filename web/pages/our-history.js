@@ -87,7 +87,7 @@ function Index(props) {
                 <img src="/assets/images/our-history/shirley-bulah.jpg" alt="Shirley Bulah" />
               </TimelineBodyLeft>
               <TimelineBodyRight>
-                <TimelineBodyText>
+                <TimelineBodyText className="text-right">
                   Parents Fred and Sarah Bulah write Delaware Governor Carvel asking the state to
                   provide their daughter Shirley with transportation to school. They are rejected.
                 </TimelineBodyText>
@@ -197,7 +197,7 @@ function Index(props) {
             <TimelineTitle>1959</TimelineTitle>
             <TimelineBody>
               <TimelineBodyLeft>
-                <div className="mx-12">
+                <div className="md:mr-12">
                   <TimelineBodyText>
                     Hockessin Colored School #107 officially closes.
                   </TimelineBodyText>
