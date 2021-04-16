@@ -102,7 +102,7 @@ function Index(props) {
       <Banner
         title="So what’s next for HCS #107?"
         action="Learn about our vision for the future"
-        link="/about/vision"
+        link="/out-vision"
         icon="/assets/images/illustration-humans.svg"
       />
     </Layout>

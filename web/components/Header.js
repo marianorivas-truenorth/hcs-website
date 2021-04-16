@@ -137,7 +137,7 @@ const AboutMenu = () => (
           <h4 className="w-48 text-gray-900">Learn more about HCS #107</h4>
         </div>
         <div>
-          <Link href="/about/vision">
+          <Link href="/out-vision">
             <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 Vision for the Future
@@ -150,7 +150,7 @@ const AboutMenu = () => (
           </Link>
         </div>
         <div>
-          <Link href="/about/board-members">
+          <Link href="/out-team">
             <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 Our Board Members
@@ -162,7 +162,7 @@ const AboutMenu = () => (
           </Link>
         </div>
         <div>
-          <Link href="/about/press">
+          <Link href="/events-and-media">
             <div className="group cursor-pointer text-base text-center md:text-left">
               <div className="text-secondary-600 group-hover:underline font-bold mb-1">
                 In the Press
