@@ -82,8 +82,9 @@ function Index(props) {
                 <h4 className="text-3xl my-4">1952</h4>
                 <p>Attorney Louis L. Redding files Bulah vs. Gebhart in the Delaware Court.</p>
                 <p>
-                  Chancellor Collins J. Seitz issues the declaration that the disparity between
-                  white and African-American students violates the U.S. Constitution.
+                  Chancellor Collins J. Seitz declared that separate African American schools
+                  offered inferior educational opportunities when compared to white schools and
+                  ordered the immediate admission of African American students to the white schools.
                 </p>
                 <p>
                   <strong>The Hockessin Schoools are desegregated.</strong>
@@ -338,19 +339,19 @@ function Index(props) {
       <section>
         <div className="max-w-screen-xl mx-auto px-8 py-16 text-center">
           <div className="mb-12 text-base font-bold text-primary-900">WITH THE SUPPORT OF</div>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 mb-8">
-            <div>
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-8 mb-8 justify-center items-center">
+            <div className="md:pr-6">
               <img
-                src="/assets/images/support/logo-delaware-state-university.png"
+                src="/assets/images/support/logo-delaware-state-university.jpg"
                 alt="Delaware State University"
               />
             </div>
-            <div>
+            {/* <div>
               <img
                 src="/assets/images/support/logo-temple-university.png"
                 alt="Temple University"
               />
-            </div>
+            </div> */}
             <div>
               <img src="/assets/images/support/logo-delaware-county.png" alt="Delaware County" />
             </div>
