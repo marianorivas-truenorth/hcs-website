@@ -208,7 +208,7 @@ function Index(props) {
           </div>
         </div>
         <div className="text-center mt-4">
-          <Link href="/out-vision">
+          <Link href="/our-vision">
             <button className="button">More About Our Vision for the Future</button>
           </Link>
         </div>

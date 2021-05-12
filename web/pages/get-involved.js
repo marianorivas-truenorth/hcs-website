@@ -87,7 +87,7 @@ function Index(props) {
                   </div>
                 </div>
                 <div className="px-6 pb-8">
-                  <Link href="/out-vision">
+                  <Link href="/our-vision">
                     <a className="lg:flex items-center group text-secondary-600">
                       <span>Learn more about our vision for the future</span>
                       <span className="inline-flex ml-2 transition ease-in-out duration-300 transform group-hover:translate-x-2">
