@@ -340,29 +340,39 @@ function Index(props) {
         <div className="max-w-screen-xl mx-auto px-8 py-16 text-center">
           <div className="mb-12 text-base font-bold text-primary-900">WITH THE SUPPORT OF</div>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-8 mb-8 justify-center items-center">
-            <div className="md:pr-6">
+            <div>
               <img
+                className="mx-auto md:pr-6"
                 src="/assets/images/support/logo-delaware-state-university.jpg"
                 alt="Delaware State University"
               />
             </div>
             {/* <div>
-              <img
+              <img className="mx-auto"
                 src="/assets/images/support/logo-temple-university.png"
                 alt="Temple University"
               />
             </div> */}
             <div>
-              <img src="/assets/images/support/logo-delaware-county.png" alt="Delaware County" />
+              <img
+                className="mx-auto"
+                src="/assets/images/support/logo-delaware-county.png"
+                alt="Delaware County"
+              />
             </div>
             <div>
-              <img src="/assets/images/support/logo-dscc.png" alt="DSCC" />
-            </div>
-            <div>
-              <img src="/assets/images/support/logo-red-clay.png" alt="Red Clay" />
+              <img className="mx-auto" src="/assets/images/support/logo-dscc.png" alt="DSCC" />
             </div>
             <div>
               <img
+                className="mx-auto md:pl-6"
+                src="/assets/images/support/logo-red-clay.png"
+                alt="Red Clay"
+              />
+            </div>
+            <div>
+              <img
+                className="mx-auto"
                 src="/assets/images/support/logo-reap.png"
                 alt="Project REAP (Real Estate Associate Program)"
               />
